@@ -1,0 +1,154 @@
+/**** CABECERA ****/
+div.seccion-cabecera img {
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+/**** MENÚ ****/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    text-decoration: none;
+}
+
+li a, .submenubtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .submenu:hover .submenubtn {
+    background-color: grey;
+    text-decoration: none;
+}
+
+li.submenu {
+    display: inline-block;
+}
+
+.submenu-contenido {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.submenu-contenido a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.submenu-contenido a:hover {
+    background-color: #f1f1f1;
+}
+
+.submenu:hover .submenu-contenido {
+    display: block;
+}
+
+/**** CUERPO ****/
+form#formulario {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #C3C3C3;
+}
+
+section.primera-fila {
+    margin-left: 50px;
+}
+
+section.primera-fila input{
+    width: 250px;
+}
+
+section.segunda-fila {
+    margin-left: 50px;
+}
+
+section.segunda-fila input{
+    width: 250px;
+}
+
+section.tercera-fila {
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+section.tercera-fila input#campo-email{
+    width: 250px;
+}
+
+section.tercera-fila input#campo-pass{
+    width: 250px;
+}
+
+section.tercera-fila input#campo-repeatPass{
+    width: 250px;
+}
+
+.btnEnviar, .btnReset{
+    margin-bottom: 20px;
+}
+/**** PÍE DE PÁGINA ****/
+footer {
+    display: block;
+    background-color: #333;
+}
+
+footer p {
+    color: white;
+    font: bold;
+    padding: 10px 10px 10px 10px;
+}
+
+/**** BARRA SOCIAL ****/
+.fa {
+    padding: 10px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    text-decoration: none;
+    background-color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    margin: 10px;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+    margin: 10px;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+    margin: 10px;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+    margin: 10px;
+}

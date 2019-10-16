@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Formulario de Registro</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <!-- ESTILOS -->
+        <link type="text/css" rel="stylesheet" href="../css/estilos.css">
+        <!-- JAVASCRIPT -->
+        <script type="text/javascript" src="../js/validar.js"></script>
+    </head>
+    <body>
+        <!-- Cabecera-->
+        <header id="cabecera">
+            <div class="seccion-cabecera">
+                <img src="../img/logos.png">
+            </div>
+        </header>
+        <!-- Menú -->
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="formulario.html">Registro</a></li>
+                <li class="submenu"><a class="submenubtn">Productos</a>
+                    <div class="submenu-contenido">
+                        <a href="#">PS4</a>
+                        <a href="#">XBOne</a>
+                    </div>
+                </li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <br><br>
+        <form id="formulario" method="POST">
+            <section class="primera-fila">
+                <h1>Datos Personales</h1>
+                <label>Nombre </label>
+                <br>
+                <input type="text" placeholder="Introduce tu nombre..." id="nombre" size="20" required="True">
+                <br><br>
+                <label>Apellidos </label>
+                <br>
+                <input type="text" placeholder="Introduce tus apellidos..." id="apellidos" size="30" maxlength="20" required="True">
+                <br><br>
+            </section>
+            <section class="segunda-fila">
+                <label>Edad </label>
+                <br>
+                <input type="number" placeholder="Introduce su edad..." id="edad" size="5" maxlength="2" required="True">
+                <br><br>
+                <label>Teléfono </label>
+                <br>
+                <input type="text" placeholder="Introduce su teléfono..." id="telefono" size="15" maxlength="9" required="True">
+            </section>
+            <section class="tercera-fila">
+                <h1>Cuenta de Usuario</h1>
+                <label>Email </label>
+                <br>
+                <input id="campo-email" type="text" placeholder="Introduce su email..." id="email" size="40" maxlength="30" required="True">
+                <br><br>
+                <label>Contraseña </label>
+                <br>
+                <input id="campo-pass" type="password" placeholder="Introduce su contraseña..." id="pass1" size="40" required="True">
+                <br><br>
+                <label>Repetir Contraseña </label>
+                <br>
+                <input id="campo-repeatPass" type="password" placeholder="Repita contraseña..." id="pass2" size="40" required="True">
+                <br>
+                <input type="checkbox" name="check" value="Recordar">Recordar
+                <br><br>
+                <input name="btnEnviar" type="button" onclick="ValidarFormulario()" value="Enviar" class="btnEnviar">
+                <input name="btnReset" type="reset" value="Resetear" class="btnReset">
+            </section>           
+        </form>
+        <br><br>
+        <footer id="contacto">
+            <p>Nombre: Pablo Vilches Mira</p>
+            <p>Teléfono: 626385324</p>
+            <p>Email: <a href="mailto:easternpablo@gmail.com">easternpablo@gmail.com</a></p>
+            <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/" class="fa fa-twitter"></a>
+            <a href="https://es.linkedin.com/" class="fa fa-linkedin"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+        </footer>
+    </body>
+</html>
