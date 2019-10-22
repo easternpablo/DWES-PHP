@@ -10,12 +10,12 @@
             echo "<table border='2px'>";
                 echo "<tr>";
                     for($num = 1; $num <= 10; $num++){
-                        echo "<th> Tabla $num </th>";
-                        for($multiplicando = 0; $multiplicando <= 10; $multiplicando++){
-                            echo "<tr>";
-                                echo "<td> $num x $multiplicando = ".($num*$multiplicando)."</td>";
-                            echo "</tr>";
-                        }
+                        echo "<th colspan='11'> Tabla $num </th>";
+                        echo "<tr>";
+                            for($multiplicando = 0; $multiplicando <= 10; $multiplicando++){
+                                echo "<td> $num x $multiplicando = ".($num*$multiplicando)."</td>";                          
+                            }
+                        echo "</tr>";
                     }
                 echo "</tr>";
             echo "</table>";
