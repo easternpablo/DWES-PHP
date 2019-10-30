@@ -7,9 +7,9 @@
     <body>
         <?php
             
-            $juegos = array("Acción" => "GTA 5","Dishonored 2","Call of Duty",
-                            "Aventura" => "Assassins Creed","Tomb Raider","The Last of Us",
-                            "Deporte" => "Fifa","Pes","Moto G");
+            $juegos["Accion"] = ["GTA 5", "Dishonored 2", "Call of Duty"];
+            $juegos["Aventura"] = ["Assassins Creed", "Tomb Raider", "The Last of Us"];
+            $juegos["Deporte"] = ["Fifa", "Pes", "Moto G"];
             
         ?>
         <table border="2px">
