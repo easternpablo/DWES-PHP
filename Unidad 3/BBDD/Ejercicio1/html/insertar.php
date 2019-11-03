@@ -10,11 +10,11 @@
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
                     
-        $sql = "INSERT INTO Coches (modelo,marca,precio,stock) VALUES('$modelo','$marca','$precio','$stock')";
+        $sql = " INSERT INTO Coches (modelo,marca,precio,stock) VALUES('$modelo','$marca','$precio','$stock') ";
         $insert = mysqli_query($conexion,$sql);
                     
         if($insert){
-            echo "Datos insertados correctamente.<br>";
+            echo "El registro se ha guardado correctamente.<br>";
             echo "<a href='index.php'>Volver</a>";
         }else{
             echo "Error: ". mysqli_error($conexion);
