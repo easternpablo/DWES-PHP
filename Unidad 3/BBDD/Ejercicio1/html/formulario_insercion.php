@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Concesionario - index</title>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <title>Insertar coche</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,14 +16,20 @@
         <?php require_once '../includes/navbar.html'; ?>
         
         <div class="seccion-principal">
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="../imagenes/oportunidad-negocio.jpg" alt="Imagen coches del concesionario"/>
+            <form class="formulario-insercion" action="insertar.php" method="POST">
+                <div class="form-group">
+                    <label>Modelo</label>
+                    <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Enter modelo"/>
+                    <label>Marca</label>
+                    <input type="text" class="form-control" id="marca" name="marca" placeholder="Enter marca"/>
+                    <label>Precio</label>
+                    <input type="number" class="form-control" id="precio" name="precio" placeholder="Enter precio"/>
+                    <label>Stock</label>
+                    <input type="number" class="form-control" id="stock" name="stock" placeholder="Enter stock"/>
                 </div>
-                <div class="col-lg-6">
-                    <img src="../imagenes/15359692674468.jpg" alt="Imagen coches del concesionario 2">
-                </div>
-            </div>           
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-primary">Resetear</button>
+            </form>
         </div>
         
         <?php require_once '../includes/footer.html'; ?>
