@@ -11,6 +11,5 @@
         echo "No se ha establecido conexion con la base de datos.";
         die("Error: ".mysqli_connect_error());
     }else{
-        echo "La conexión se ha establecido correctamente.<br>";
         mysqli_query($conexion, " SET NAMES 'utf8' ");
     }

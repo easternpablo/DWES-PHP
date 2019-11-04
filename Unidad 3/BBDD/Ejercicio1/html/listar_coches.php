@@ -24,7 +24,7 @@
     
             if(mysqli_num_rows($result)>0){ ?>
                 <div class="seccion-principal">
-                    <table class="table">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Identificador</th>

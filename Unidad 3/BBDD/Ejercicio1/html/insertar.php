@@ -14,8 +14,7 @@
         $insert = mysqli_query($conexion,$sql);
                     
         if($insert){
-            echo "El registro se ha guardado correctamente.<br>";
-            echo "<a href='index.php'>Volver</a>";
+            header("Location: listar_coches.php");
         }else{
             echo "Error: ". mysqli_error($conexion);
         }
