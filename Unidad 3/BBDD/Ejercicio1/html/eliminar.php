@@ -10,8 +10,7 @@
         $delete = mysqli_query($conexion, $sql);
         
         if($delete){
-            echo "El registro se ha eliminado correctamente.<br>";
-            echo "<a href='index.php'>Volver</a>";
+            header("Location: listar_coches.php");
         }else{
             echo "Error: ". mysqli_error($conexion);
         }
@@ -19,4 +18,3 @@
     }else{
         echo "No se reconocen los campos.<br>";
     }
-
