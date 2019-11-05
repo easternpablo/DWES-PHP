@@ -27,6 +27,24 @@
             </form>
         </div>
         
+        <?php
+            
+            if(isset($_POST)){
+                
+                $id = (int)$_POST['identificador'];
+            
+                $sql = " SELECT marca,modelo,precio,stock FROM Coches WHERE id=$id ";
+                $resultado = mysqli_query($conexion,$sql);
+
+                /*if($resultado){
+                    
+                }else{
+                    echo "No existe."
+                }*/
+            }
+            
+        ?>
+        
         <?php require_once '../includes/footer.html'; ?>
         
     </body>

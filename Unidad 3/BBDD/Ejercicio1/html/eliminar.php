@@ -6,7 +6,7 @@
         
         $id = $_POST['identificador'];
         
-        $sql = " DELETE FROM Coches WHERE id='$id' ";
+        $sql = " DELETE FROM Coches WHERE id=$id ";
         $delete = mysqli_query($conexion, $sql);
         
         if($delete){
