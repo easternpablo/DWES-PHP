@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>Modificar coche</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Modificar coche</title>     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="../css/estilos.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="../css/estilos.css">      
     </head>
     <body>
         
         <?php require_once 'conexion.php'; ?>
         <?php require_once '../includes/navbar.html'; ?>
         
-        <div class="seccion-principal">
-            <form class="formulario-modificacion" method="POST">
-                <div class="form-group">
-                    <label>Identificador</label>
-                    <input type="number" class="form-control" id="identificador" name="identificador" placeholder="Enter id"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Visualizar</button>
-                <button type="reset" class="btn btn-primary">Resetear</button>
-            </form>
-        </div>
-        
-        <?php
+        <?php 
             
-            if(isset($_POST)){
+            if(isset($_GET['modificarid'])){
                 
-                $id = (int)$_POST['identificador'];
-            
-                $sql = " SELECT marca,modelo,precio,stock FROM Coches WHERE id=$id ";
+                $id = $_GET['modificarid'];
+                
+                $sql = "SELECT * FROM Coches WHERE id=$id ";
                 $resultado = mysqli_query($conexion,$sql);
-
-                /*if($resultado){
-                    
-                }else{
-                    echo "No existe."
-                }*/
-            }
-            
-        ?>
+                $fila = mysqli_fetch_assoc($resultado); ?>
+                
+                <div class="seccion-principal">
+                    <form class="formulario-modificacion" action="modificar.php" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="identificador" name="identificador" value=<?=$fila['id']?>>
+                            <label>Modelo</label>
+                            <input type="text" class="form-control" id="modelo" name="modelo" value=<?=$fila['modelo']?>>
+                            <label>Marca</label>
+                            <input type="text" class="form-control" id="marca" name="marca" value=<?=$fila['marca']?>>
+                            <label>Precio</label>
+                            <input type="number" class="form-control" id="precio" name="precio" value=<?=$fila['precio']?>>
+                            <label>Stock</label>
+                            <input type="number" class="form-control" id="stock" name="stock" value=<?=$fila['stock']?>>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </form>
+                </div>
+        
+      <?php } ?>
         
         <?php require_once '../includes/footer.html'; ?>
         

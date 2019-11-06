@@ -2,9 +2,9 @@
 
     require_once 'conexion.php';
     
-    if(isset($_POST['identificador']) && $_POST['identificador'] != ""){
+    if(isset($_GET['borrarid'])){
         
-        $id = $_POST['identificador'];
+        $id = $_GET['borrarid'];
         
         $sql = " DELETE FROM Coches WHERE id=$id ";
         $delete = mysqli_query($conexion, $sql);

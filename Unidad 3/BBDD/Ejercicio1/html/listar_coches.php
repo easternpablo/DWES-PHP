@@ -32,6 +32,7 @@
                                 <th>Modelo</th>
                                 <th>Precio</th>
                                 <th>Stock</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,10 @@
                                         <td><?= $fila['modelo'] ?></td>
                                         <td><?= $fila['precio'] ?></td>
                                         <td><?= $fila['stock'] ?></td>
+                                        <td> 
+                                            <a href="formulario_modificacion.php?modificarid=<?=$fila['id']?>" class="fa fa-edit"></a> 
+                                            <a href="eliminar.php?borrarid=<?=$fila['id']?>" class="fa fa-trash"></a>
+                                        </td>
                                     </tr>
                           <?php }
                 
