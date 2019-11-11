@@ -18,7 +18,7 @@
         <div class="seccion-principal">
             <div class="row">
                 <div class="col-lg-6">
-                    <form class="formulario-login">
+                    <form class="formulario-login" action="../includes/mysql_bbdd/login.php" method="POST">
                         <fieldset>
                             <legend>Iniciar Sesión</legend>
                             <div class="form-group">
@@ -36,7 +36,7 @@
                     </form> 
                 </div>
                 <div class="col-lg-6">
-                    <form class="formulario-registro">
+                    <form class="formulario-registro" action="../includes/mysql_bbdd/registro_usuario.php" method="POST">
                         <fieldset>
                             <legend>Registro Usuario</legend>
                             <div class="form-group">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Dirección</label><br>
-                                <input type="text" placeholder="Enter your address" class="form-control" name="direccion" required="true"/>
+                                <input type="text" placeholder="Enter your address" class="form-control" name="direccion"/>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Registrar</button>
