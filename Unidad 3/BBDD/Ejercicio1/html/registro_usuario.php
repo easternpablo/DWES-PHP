@@ -36,7 +36,7 @@
         $insert = $conexion -> query($sql);
         
         if($insert){
-            header("Location: ../../html/index.php");
+            header("Location: index.php");
         }else{
             echo "Error: ".$conexion->connect_error;
         }
