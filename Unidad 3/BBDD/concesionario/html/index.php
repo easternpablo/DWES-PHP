@@ -19,59 +19,59 @@
             <div class="row">
                 <div class="col-lg-6">
                     <form class="formulario-login" action="login.php" method="POST">
-                        <fieldset>
-                            <legend>Iniciar Sesión</legend>
-                            <div class="form-group">
-                                <label>Email</label><br>
-                                <input type="email" placeholder="Enter email" class="form-control" name="emailLogin" required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Contraseña</label><br>
-                                <input type="password" placeholder="Enter contraseña" class="form-control" name="passwordLogin" required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                            </div>
-                        </fieldset>
+                        <h2>Iniciar Sesión</h2>
+                        <div class="form-group">
+                            <label>Usuario</label><br>
+                            <input type="text" placeholder="Enter username" class="form-control" name="userLogin" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label><br>
+                            <input type="password" placeholder="Enter password" class="form-control" name="passwordLogin" required/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        </div>
                     </form> 
                 </div>
                 <div class="col-lg-6">
                     <form class="formulario-registro" action="registro_usuario.php" method="POST">
-                        <fieldset>
-                            <legend>Registro Usuario</legend>
-                            <div class="form-group">
-                                <label>Email</label><br>
-                                <input type="email" placeholder="Enter email" class="form-control" name="email" required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Contraseña</label><br>
-                                <input type="password" placeholder="Enter contraseña" class="form-control" name="password1" required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Repita Contraseña</label><br>
-                                <input type="password" placeholder="Repeat contraseña" class="form-control" name="password2" required="true"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Nombre</label><br>
-                                <input type="text" placeholder="Enter your name" class="form-control" name="nombre"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Apellidos</label><br>
-                                <input type="text" placeholder="Enter your surname" class="form-control" name="apellidos"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Edad</label><br>
-                                <input type="number" placeholder="Enter your age" class="form-control" name="edad"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Dirección</label><br>
-                                <input type="text" placeholder="Enter your address" class="form-control" name="direccion"/>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Registrar</button>
-                                <button type="reset" class="btn btn-primary">Resetear</button>
-                            </div>
-                        </fieldset>
+                        <h2>Registrar usuario</h2>
+                        <div class="form-group">
+                            <label>Usuario</label><br>
+                            <input type="text" placeholder="Enter username" class="form-control" name="user" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label><br>
+                            <input type="email" placeholder="Enter email" class="form-control" name="email"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label><br>
+                            <input type="password" placeholder="Enter contraseña" class="form-control" name="password1" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Repita Contraseña</label><br>
+                            <input type="password" placeholder="Repeat contraseña" class="form-control" name="password2" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label><br>
+                            <input type="text" placeholder="Enter your name" class="form-control" name="nombre"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellidos</label><br>
+                            <input type="text" placeholder="Enter your surname" class="form-control" name="apellidos"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Edad</label><br>
+                            <input type="number" placeholder="Enter your age" class="form-control" name="edad"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Dirección</label><br>
+                            <input type="text" placeholder="Enter your address" class="form-control" name="direccion"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                            <button type="reset" class="btn btn-primary">Resetear</button>
+                        </div>
                     </form> 
                 </div>
             </div>           
