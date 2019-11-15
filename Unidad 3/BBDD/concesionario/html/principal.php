@@ -13,9 +13,12 @@
     </head>
     <body>
         
+        <?php require_once 'conexion.php'; ?>
         <?php require_once '../includes/navbar.html'; ?>
         
         <div class="seccion-principal">
+            <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
+            <?php echo "Bienvenido: ".$_SESSION['usuario']?>
             <div class="row">
                 <div class="col-lg-6">
                     <img src="../imagenes/oportunidad-negocio.jpg" alt="Imagen coches del concesionario"/>

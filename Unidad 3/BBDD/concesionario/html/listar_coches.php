@@ -50,13 +50,10 @@
                                             <a href="eliminar.php?borrarid=<?=$fila['id']?>" class="fa fa-trash"></a>
                                         </td>
                                     </tr>
-                          <?php }
-                
-                require_once 'desconexion.php';          
+                          <?php }         
                           
             }else{
                 echo "0 registros";
-                require_once 'desconexion.php';
             }?>
                         </tbody>
                     </table>

@@ -22,6 +22,7 @@
         $verify = password_verify($password, $fila['password']);
         
         if($verify == true){
+            $_SESSION['usuario'] = $usuario;
             header("Location: principal.php");
         }else{
             $errores['usuario'] = "El usuario está mal puesto o no existe.";
