@@ -16,6 +16,8 @@
         <?php require_once '../includes/navbar.html'; ?>
         
         <div class="seccion-principal">
+            <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
+            <?php echo "Usuario: ".$_SESSION['usuario']?>
             <form class="formulario-insercion" action="insertar.php" method="POST">
                 <div class="form-group">
                     <label>Modelo</label>

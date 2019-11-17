@@ -18,7 +18,7 @@
         
         <div class="seccion-principal">
             <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
-            <?php echo "Bienvenido: ".$_SESSION['usuario']?>
+            <?php echo "Usuario: ".$_SESSION['usuario']?>
             <div class="row">
                 <div class="col-lg-6">
                     <img src="../imagenes/oportunidad-negocio.jpg" alt="Imagen coches del concesionario"/>

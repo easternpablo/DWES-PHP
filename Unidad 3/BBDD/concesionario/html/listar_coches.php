@@ -24,6 +24,8 @@
     
             if(mysqli_num_rows($result)>0){ ?>
                 <div class="seccion-principal">
+                    <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
+                    <?php echo "Usuario: ".$_SESSION['usuario']?>
                     <table class="table table-striped">
                         <thead>
                             <tr>

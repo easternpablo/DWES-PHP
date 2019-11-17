@@ -27,6 +27,8 @@
                 $fila = mysqli_fetch_assoc($resultado); ?>
                 
                 <div class="seccion-principal">
+                    <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
+                    <?php echo "Usuario: ".$_SESSION['usuario']?>
                     <form class="formulario-modificacion" action="modificar.php" method="POST">
                         <div class="form-group">
                             <input type="hidden" class="form-control" id="identificador" name="identificador" value=<?=$fila['id']?>>

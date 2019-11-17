@@ -24,6 +24,8 @@
             
             if(mysqli_num_rows($result)>0){ ?>
                 <div class="seccion-principal">
+                    <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
+                    <?php echo "Usuario: ".$_SESSION['usuario']?>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -44,7 +46,7 @@
                                         <td><?= $fila['ciudad'] ?></td>
                                         <td><?= $fila['gastado'] ?></td>
                                         <td>
-                                            <a href="#" class="fa fa-edit"></a>
+                                            <a href="ventas_realizadas.php?ventasclienteid=<?=$fila['id']?>" class="fa fa-edit"></a>
                                         </td>
                                     </tr>
                           <?php }
