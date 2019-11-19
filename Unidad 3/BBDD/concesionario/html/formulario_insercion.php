@@ -13,12 +13,13 @@
     </head>
     <body>
         
+        <?php require_once 'conexion.php'; ?>
         <?php require_once '../includes/navbar.html'; ?>
         
         <div class="seccion-principal">
-            <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
-            <?php echo "Usuario: ".$_SESSION['usuario']?>
+            <?php if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}?>
             <form class="formulario-insercion" action="insertar.php" method="POST">
+                
                 <div class="form-group">
                     <label>Modelo</label>
                     <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Enter modelo"/>

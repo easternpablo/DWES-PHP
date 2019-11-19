@@ -17,8 +17,7 @@
         <?php require_once '../includes/navbar.html'; ?>
         
         <div class="seccion-principal">
-            <?php if(isset($_SESSION['usuario'])){session_destroy();}?>
-            <?php echo "Usuario: ".$_SESSION['usuario']?>
+            <?php if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}?>
             <div class="row">
                 <div class="col-lg-6">
                     <img src="../imagenes/oportunidad-negocio.jpg" alt="Imagen coches del concesionario"/>
