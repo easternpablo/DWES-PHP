@@ -17,9 +17,18 @@
         <?php require_once '../includes/navbar.html'; ?>
         
         <div class="seccion-principal">
-            <?php if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}?>
-            <form class="formulario-insercion" action="insertar.php" method="POST">
+            <?php
+            
+                if(isset($_SESSION['errores'])){
+                    foreach ($_SESSION['errores'] as $error){
+                        echo "* ".$error."<br>";
+                        $_SESSION['errores'] = null;
+                    }                   
+                }
                 
+                if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}
+            ?>
+            <form class="formulario-insercion" action="insertar.php" method="POST">               
                 <div class="form-group">
                     <label>Modelo</label>
                     <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Enter modelo"/>

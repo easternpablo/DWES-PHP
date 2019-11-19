@@ -32,7 +32,11 @@
         if($insert){
             header("Location: listar_coches.php");
         }else{
-            echo "Error: ". mysqli_error($conexion);
+            header("Location: formulario_insercion.php");
+            echo "Error: no se ha insertado correctamente el registro...";
         }
         
+    }else{
+        $_SESSION['errores'] = $errores;
+        header("Location: formulario_insercion.php");
     }

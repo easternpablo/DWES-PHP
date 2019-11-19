@@ -4,17 +4,17 @@
     
     $usuario = isset($_POST['userLogin']) ? mysqli_real_escape_string($conexion,trim($_POST['userLogin'])):false;
     $password = isset($_POST['passwordLogin']) ? mysqli_real_escape_string($conexion,trim($_POST['passwordLogin'])):false;
-    $errores = Array();
+    $erroresLogin = Array();
     
     if(empty($usuario)){
-        $errores['userLogin'] = "Error en el campo usuario.<br>";
+        $erroresLogin['userLogin'] = "Error en el campo usuario.<br>";
     }
     
     if(empty($password)){
-        $errores['passwordLogin'] = "Error en el campo contraseña.<br>";
+        $erroresLogin['passwordLogin'] = "Error en el campo contraseña.<br>";
     }
     
-    if(count($errores)==0){
+    if(count($erroresLogin)==0){
         
         $sql = " SELECT password FROM Usuarios WHERE usuario='$usuario' ";
         $consulta = mysqli_query($conexion,$sql);
@@ -25,6 +25,10 @@
             $_SESSION['usuario'] = $usuario;
             header("Location: principal.php");
         }else{
-            $errores['usuario'] = "El usuario está mal puesto o no existe.";
+            $erroresLogin['usuario'] = "El usuario está mal puesto o no existe.";
+            header("Location: index.php");
         }
+    }else{
+        $_SESSION['erroresLogin'] = $erroresLogin;
+        header("Location: index.php");       
     }

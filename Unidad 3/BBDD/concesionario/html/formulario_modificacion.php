@@ -27,7 +27,18 @@
                 $fila = mysqli_fetch_assoc($resultado); ?>
                 
                 <div class="seccion-principal">
-                    <?php if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}?>
+                    
+                    <?php 
+                          if(isset($_SESSION['errores'])){
+                            foreach ($_SESSION['errores'] as $error){
+                                echo "* ".$error."<br>";
+                                $_SESSION['errores'] = null;
+                            }
+                          }
+                          
+                          if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}
+                    ?>
+                    
                     <form class="formulario-modificacion" action="modificar.php" method="POST">
                         <div class="form-group">
                             <input type="hidden" class="form-control" id="identificador" name="identificador" value=<?=$fila['id']?>>

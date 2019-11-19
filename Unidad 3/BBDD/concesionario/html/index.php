@@ -16,6 +16,26 @@
         <?php require_once '../includes/navbarLogin.html'; ?>
         
         <div class="seccion-principal">
+            
+            <?php 
+                session_start();
+                if(isset($_SESSION['erroresRegistro'])){
+                    foreach ($_SESSION['erroresRegistro'] as $error){
+                        echo "* ".$error."<br>";
+                        $_SESSION['erroresRegistro'] = null;
+                    }
+                }
+                
+                if(isset($_SESSION['erroresLogin'])){
+                    foreach ($_SESSION['erroresLogin'] as $error){
+                        echo "* ".$error."<br>";
+                        $_SESSION['erroresLogin'] = null;
+                    }
+                }
+                
+                if(isset($_SESSION['usuario'])){session_destroy();}
+            ?>
+            
             <div class="row">
                 <div class="col-lg-6">
                     <form class="formulario-login" action="login.php" method="POST">

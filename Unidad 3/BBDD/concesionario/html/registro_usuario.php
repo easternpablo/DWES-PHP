@@ -10,32 +10,32 @@
     $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($conexion,trim($_POST['apellidos'])):false;
     $edad = (int)$_POST['edad'];
     $direccion = isset($_POST['direccion']) ? mysqli_real_escape_string($conexion,trim($_POST['direccion'])):false;
-    $errores = Array();
+    $erroresRegistro = Array();
     
     if(empty($usuario)){
-        $errores['user'] = "Error en el campo usuario.<br>";
+        $erroresRegistro['user'] = "Error en el campo usuario.<br>";
     }
     
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $errores['email'] = "Error en el campo email.<br>";
+        $erroresRegistro['email'] = "Error en el campo email.<br>";
     }
     
     if(empty($password1)){
-        $errores['password1'] = "Error en el campo contraseña.<br>";
+        $erroresRegistro['password1'] = "Error en el campo contraseña.<br>";
     }
     
     if(empty($password2)){
-        $errores['password2'] = "Error en el campo repetir contraseña.<br>";
+        $erroresRegistro['password2'] = "Error en el campo repetir contraseña.<br>";
     }
     
     if($password1 != $password2){
-        $errores['password1'] = "Error las contraseñas deben ser las mismas.<br>";
-        $errores['password2'] = "Error las contraseñas deben ser las mismas.<br>";
+        $erroresRegistro['password1'] = "Error las contraseñas deben ser las mismas.<br>";
+        $erroresRegistro['password2'] = "Error las contraseñas deben ser las mismas.<br>";
     }else{
         $password_segura = password_hash($password1,PASSWORD_BCRYPT,['cost'=>4]);
     }
     
-    if(count($errores)==0){
+    if(count($erroresRegistro)==0){
         
         $sql = " INSERT INTO Usuarios (usuario,email,password,nombre,apellidos,edad,direccion) VALUES ('$usuario','$email','$password_segura','$nombre','$apellidos',$edad,'$direccion') ";
         $insert = mysqli_query($conexion,$sql);
@@ -46,4 +46,7 @@
             echo "Error: ".mysqli_error($conexion);
         }
         
+    }else{
+        $_SESSION['erroresRegistro'] = $erroresRegistro;
+        header("Location: index.php");
     }
