@@ -1,0 +1,86 @@
+body{
+    width: 100%;
+}
+
+/**** CABECERA ****/
+header {
+    height: 210px;
+}
+
+img#logo {
+    width: 420px;
+    height: 250px;
+}
+
+h1#titulo {
+    margin-top: 100px;
+    text-align: left;
+}
+
+/**** CUERPO ****/
+div.seccion-principal{
+    background-color: grey;
+}
+
+div.formulario-login{
+    margin-right: 60px;
+}
+
+div.formulario-registro{
+    margin-right: 60px;
+}
+
+/**** PIE DE PÁGINA ****/
+footer {
+    display: block;
+    background-color: #343a40;
+}
+
+footer p {
+    color: white;
+    font: bold;
+    padding: 10px 10px 10px 10px;
+}
+/**** BARRA SOCIAL ****/
+.fa {
+    padding: 10px;
+    width: 35px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    text-decoration: none;
+    background-color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    margin: 10px;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+    margin: 10px;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+    margin: 10px;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+    margin: 10px;
+}
+
+.fa-youtube {
+    background: red;
+    color: white;
+    margin: 10px;
+}
