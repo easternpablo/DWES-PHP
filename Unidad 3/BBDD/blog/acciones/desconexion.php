@@ -5,7 +5,7 @@
     if($conexion){
         mysqli_close($conexion);
         session_destroy();
-        header("Location: index.php");
+        header("Location: ../html/index.php");
     }else{
         echo "No se ha podido cerrar la sesión";
     }

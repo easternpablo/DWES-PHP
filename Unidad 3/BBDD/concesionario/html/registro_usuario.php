@@ -50,3 +50,4 @@
         $_SESSION['erroresRegistro'] = $erroresRegistro;
         header("Location: index.php");
     }
+    
