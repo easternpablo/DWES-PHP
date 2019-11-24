@@ -1,11 +1,7 @@
-body{
-    width: 100%;
-}
+body{width: 100%;}
 
 /**** CABECERA ****/
-header {
-    height: 210px;
-}
+header {height: 210px;}
 
 img#logo {
     width: 420px;
@@ -18,17 +14,12 @@ h1#titulo {
 }
 
 /**** CUERPO ****/
-div.seccion-principal{
-    background-color: grey;
-}
-
-div.formulario-login{
-    margin-right: 60px;
-}
-
-div.formulario-registro{
-    margin-right: 60px;
-}
+div.seccion-principal{background-color: grey;}
+div.formulario-login{margin-right: 60px;}
+div.formulario-registro{margin-right: 60px;}
+div.opciones{margin: 10px 10px 10px 10px;}
+div.opciones button{width: 200px; text-align: center;}
+div.formulario-categoria{margin: 10px 10px 10px 10px;}
 
 /**** PIE DE PÁGINA ****/
 footer {

@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Main - Blog</title>
+        <title>Nueva categoria - Blog</title>
         <link rel="stylesheet" href="../css/estilos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -13,8 +13,7 @@
     <body>
         
         <?php require_once '../acciones/conexion.php'; ?>
-        <?php require_once '../includes/header.html'; ?>
-        
+        <?php require_once '../includes/header.html'; ?>        
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" href="#">
                 <i style='text-decoration: none;' class="fa fa-gamepad"></i>
@@ -36,6 +35,7 @@
                         }
                     }                  
                 ?>
+                 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sobre mi</a>
                 </li>
@@ -46,7 +46,22 @@
         </nav>
         <div class="seccion-principal">
             <div class="row">
-                <div id="primera-columna" class="col-lg-8"></div>
+                <div id="primera-columna" class="col-lg-8">
+                    <div class="formulario-categoria">
+                        <fieldset>
+                            <legend>Nueva categoria</legend>
+                            <form class="form-login" action="../acciones/registrarCategoria.php" method="post">
+                                <div class="form-group">
+                                    <label>Categoria</label><br>
+                                    <input type="text" placeholder="Enter categoria" class="form-control" name="categoria" required/>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </fieldset>
+                    </div>
+                </div>
                 <div class="col-lg-4">
                     <aside>
                         <div class="buscador"></div>
@@ -63,8 +78,6 @@
                 </div>
             </div>
         </div>
-        
         <?php require_once '../includes/footer.html'; ?>
-        
     </body>
 </html>

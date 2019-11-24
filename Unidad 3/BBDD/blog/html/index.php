@@ -80,10 +80,6 @@
                                         <input type="password" placeholder="Enter password" class="form-control" name="passwordRegistro" required/>
                                     </div>
                                     <div class="form-group">
-                                        <label>Fecha</label><br>
-                                        <input type="date" placeholder="Enter fecha" class="form-control" name="fechaRegistro" required/>
-                                    </div>
-                                    <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Crear cuenta</button>
                                         <button type="reset" class="btn btn-primary">Resetear</button>
                                     </div>
