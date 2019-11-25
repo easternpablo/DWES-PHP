@@ -46,7 +46,25 @@
         </nav>
         <div class="seccion-principal">
             <div class="row">
-                <div id="primera-columna" class="col-lg-8"></div>
+                <div id="primera-columna" class="col-lg-8">
+                    <?php 
+                        
+                        $sql = " SELECT E.titulo,C.nombre,E.fecha,E.descripcion FROM entradas E INNER JOIN categorias C ON E.categoria_id = C.id ";
+                        $consulta = mysqli_query($conexion,$sql);
+                        
+                        if(mysqli_num_rows($consulta)>0){ 
+                            while($fila = mysqli_fetch_assoc($consulta)){ ?>
+                                <div class="entrada">
+                                    <h2><?=$fila['titulo']?></h2>
+                                    <p><?=$fila['nombre']?> | <?=$fila['fecha']?></p>
+                                    <p><?=$fila['descripcion']?></p>
+                                </div>
+                        <?php    
+                            }
+                        }                  
+                        ?>
+                    
+                </div>
                 <div class="col-lg-4">
                     <aside>
                         <div class="buscador"></div>

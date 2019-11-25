@@ -15,6 +15,7 @@ h1#titulo {
 
 /**** CUERPO ****/
 div.seccion-principal{background-color: grey;}
+div.entrada{margin-left: 10px; margin-top: 10px;}
 div.formulario-login{margin-right: 60px;}
 div.formulario-registro{margin-right: 60px;}
 div.opciones{margin: 10px 10px 10px 10px;}

@@ -61,8 +61,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Categoría</label>
-                                    <select>
-                                        <option>------</option>
+                                    <select id="selectCategoria" name="selectCategoria">
+                                        <option value="0">------</option>
                                         <?php
                                             $sql = " SELECT * FROM categorias ";
                                             $consulta = mysqli_query($conexion,$sql);
@@ -74,7 +74,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary btnAgregar">Guardar</button>
                                 </div>
                             </form>
                         </fieldset>
