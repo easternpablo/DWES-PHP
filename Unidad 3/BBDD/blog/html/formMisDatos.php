@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>Nueva categoria - Blog</title>
+        <title>Actualizar datos - Blog</title>
         <link rel="stylesheet" href="../css/estilos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -11,9 +11,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        
         <?php require_once '../acciones/conexion.php'; ?>
-        <?php require_once '../includes/header.html'; ?>        
+        <?php require_once '../includes/header.html'; ?>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" href="#">
                 <i style="text-decoration: none;" class="fa fa-gamepad"></i>
@@ -49,14 +48,31 @@
                 <div id="primera-columna" class="col-lg-8">
                     <div class="formulario-categoria">
                         <fieldset>
-                            <legend>Nueva categoria</legend>
-                            <form class="form-login" action="../acciones/registrarCategoria.php" method="post">
+                            <legend>Mis Datos</legend>
+                            <?php
+                                $email = $_SESSION['usuario'];
+                                $sql = " SELECT * FROM usuarios WHERE email='$email' ";
+                                $consulta = mysqli_query($conexion,$sql);
+                                $fila = mysqli_fetch_assoc($consulta);
+                            ?>
+                            <form class="form-login" action="../acciones/modificarMisDatos.php" method="post">
                                 <div class="form-group">
-                                    <label>Categoria</label><br>
-                                    <input type="text" placeholder="Enter categoria" class="form-control" name="categoria" required/>
+                                    <input type="number" class="form-control" value="<?=$fila['id']?>" name="id" hidden/>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <label>Nombre</label><br>
+                                    <input type="text" class="form-control" value="<?=$fila['nombre']?>" name="nombre"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos</label><br>
+                                    <input type="text" class="form-control" value="<?=$fila['apellidos']?>" name="apellidos"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label><br>
+                                    <input type="email" class="form-control" value="<?=$email?>" name="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btnAgregar">Actualizar</button>
                                 </div>
                             </form>
                         </fieldset>

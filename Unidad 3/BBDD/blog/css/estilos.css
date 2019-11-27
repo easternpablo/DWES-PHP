@@ -21,6 +21,7 @@ div.formulario-registro{margin-right: 60px;}
 div.opciones{margin: 10px 10px 10px 10px;}
 div.opciones button{width: 200px; text-align: center;}
 div.formulario-categoria{margin: 10px 10px 10px 10px;}
+div.entrada h2{color: #0EAF29; text-shadow: 2px 2px 4px #000000;}
 
 /**** PIE DE PÁGINA ****/
 footer {

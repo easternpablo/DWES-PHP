@@ -17,7 +17,7 @@
         
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" href="#">
-                <i style='text-decoration: none;' class="fa fa-gamepad"></i>
+                <i style="text-decoration: none;" class="fa fa-gamepad"></i>
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -73,7 +73,7 @@
                             <div class="btn-group-vertical">
                                 <a href="formEntrada.php"><button type="button" class="btn btn-success">Crear entrada</button></a><br>
                                 <a href="formCategoria.php"><button type="button" class="btn btn-primary">Crear categoría</button></a><br>
-                                <a href="#"><button type="button" class="btn btn-warning">Mis datos</button></a><br>
+                                <a href="formMisDatos.php"><button type="button" class="btn btn-warning">Mis datos</button></a><br>
                                 <a href="../acciones/desconexion.php"><button type="button" class="btn btn-danger">Cerrar sesión</button></a><br>
                             </div>
                         </div>

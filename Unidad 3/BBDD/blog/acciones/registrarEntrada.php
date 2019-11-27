@@ -2,6 +2,7 @@
 
     require_once 'conexion.php';
     
+    $entradasErrores = Array();
     $titulo = isset($_POST['titulo']) ? mysqli_real_escape_string($conexion,trim($_POST['titulo'])):false;
     $descripcion = isset($_POST['descripcion']) ? mysqli_real_escape_string($conexion,trim($_POST['descripcion'])):false;
     
@@ -15,10 +16,10 @@
     
     if(isset($_POST['selectCategoria'])){
         $categoria = $_POST['selectCategoria'];
+    }else if($_POST['selectCategoria']==0){
+        $entradasErrores['selectCategoria'] = "Error no tienes ninguna categoría seleccionada.";
     }
-     
-    $entradasErrores = Array();
-    
+ 
     if(empty($titulo)){
         $entradasErrores['titulo'] = "Error en el campo título.";
     }
