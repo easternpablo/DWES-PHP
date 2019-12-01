@@ -45,9 +45,18 @@
             </ul>
         </nav>
         <div class="seccion-principal">
+            <?php
+                
+                if(isset($_SESSION['erroresCategoria'])){
+                    foreach ($_SESSION['erroresCategoria'] as $error){
+                        echo "* ".$error."<br>";
+                        $_SESSION['erroresCategoria'] = null;
+                    }
+                }
+            ?>
             <div class="row">
                 <div id="primera-columna" class="col-lg-8">
-                    <div class="formulario-categoria">
+                    <div class="formulario">
                         <fieldset>
                             <legend>Nueva categoria</legend>
                             <form class="form-login" action="../acciones/registrarCategoria.php" method="post">
@@ -64,7 +73,14 @@
                 </div>
                 <div class="col-lg-4">
                     <aside>
-                        <div class="buscador"></div>
+                        <div class="buscador">
+                            <div class="formulario">
+                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="" method="post">
+                                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                                    <button type="submit" class="btn btn-success">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
                         <div class="opciones">
                             <?php if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}?><br><br>
                             <div class="btn-group-vertical">

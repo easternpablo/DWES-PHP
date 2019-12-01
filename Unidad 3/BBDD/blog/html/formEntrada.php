@@ -45,9 +45,19 @@
             </ul>
         </nav>
         <div class="seccion-principal">
+            <?php
+                
+
+                    if(isset($_SESSION['entradasErrores'])){
+                        foreach ($_SESSION['entradasErrores'] as $error){
+                            echo "* ".$error."<br>";
+                            $_SESSION['entradasErrores'] = null;
+                        }
+                    }
+            ?>
             <div class="row">
                 <div id="primera-columna" class="col-lg-8">
-                    <div class="formulario-categoria">
+                    <div class="formulario">
                         <fieldset>
                             <legend>Nueva entrada</legend>
                             <form class="form-login" action="../acciones/registrarEntrada.php" method="post">
@@ -62,7 +72,7 @@
                                 <div class="form-group">
                                     <label>Categoría</label>
                                     <select id="selectCategoria" name="selectCategoria">
-                                        <option value="0">------</option>
+                                        <option value="">Elige una opción</option>
                                         <?php
                                             $sql = " SELECT * FROM categorias ";
                                             $consulta = mysqli_query($conexion,$sql);
@@ -82,7 +92,14 @@
                 </div>
                 <div class="col-lg-4">
                     <aside>
-                        <div class="buscador"></div>
+                        <div class="buscador">
+                            <div class="formulario">
+                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="" method="post">
+                                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                                    <button type="submit" class="btn btn-success">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
                         <div class="opciones">
                             <?php if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}?><br><br>
                             <div class="btn-group-vertical">

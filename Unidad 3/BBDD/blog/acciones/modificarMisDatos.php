@@ -12,6 +12,18 @@
         $erroresModificacion['email'] = "Error en el campo email.";
     }
     
+    if(empty($email)){
+        $erroresModificacion['email'] = "Error no puedes dejar el campo email vacío.";
+    }
+    
+    if(empty($nombre)){
+        $erroresModificacion['nombre'] = "Error no puedes dejar el campo nombre vacío.";
+    }
+    
+    if(empty($apellidos)){
+        $erroresModificacion['apellidos'] = "Error no puedes dejar el campo apellidos vacío.";
+    }
+    
     if(count($erroresModificacion)==0){
             
         $sql = " UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', email='$email' WHERE id='$id' ";
@@ -24,4 +36,7 @@
             echo "Error: ". mysqli_error($conexion);
         }
         
+    }else{
+        $_SESSION['erroresModificacion'] = $erroresModificacion;
+        header("Location: ../html/formMisDatos.php");
     }

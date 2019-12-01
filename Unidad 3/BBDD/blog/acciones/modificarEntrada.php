@@ -2,7 +2,8 @@
 
     require_once 'conexion.php';
     
-    $entradasErrores = Array();
+    $arrayErrores = Array();
+    $id = (int)$_POST['identificador'];
     $titulo = isset($_POST['titulo']) ? mysqli_real_escape_string($conexion,trim($_POST['titulo'])):false;
     $descripcion = isset($_POST['descripcion']) ? mysqli_real_escape_string($conexion,trim($_POST['descripcion'])):false;
     
@@ -16,26 +17,26 @@
     
     if(isset($_POST['selectCategoria'])){
         $categoria = $_POST['selectCategoria'];
+        var_dump($categoria);
     }else if($_POST['selectCategoria']==0){
-        $entradasErrores['selectCategoria'] = "Error no tienes ninguna categoría seleccionada.";
-    }
- 
-    if(empty($titulo)){
-        $entradasErrores['titulo'] = "Error en el campo título.";
+        $arrayErrores['selectCategoria'] = "Error no tienes ninguna categoría seleccionada.";
     }
     
-    if(count($entradasErrores)==0){
+    if(empty($titulo)){
+        $arrayErrores['titulo'] = "Error en el campo título.";
+    }
+    
+    if(count($arrayErrores)==0){
         
-        $sqlInsert = " INSERT INTO entradas (usuario_id,categoria_id,titulo,descripcion,fecha) VALUES ($usuario_id,$categoria,'$titulo','$descripcion',CURDATE()) ";
-        $insert = mysqli_query($conexion,$sqlInsert);
+        $sql = " UPDATE entradas SET usuario_id=$usuario_id, categoria_id=$categoria, titulo='$titulo', descripcion='$descripcion', fecha='CURDATE()' WHERE id=$id ";
+        $update = mysqli_query($conexion,$sql);
         
-        if($insert){
-            header("Location: ../html/formEntrada.php");
+        if($update){
+            header("Location: ../html/principal.php");
         }else{
-            echo "Error: ".mysqli_error($conexion);
+            echo "Error: ". mysqli_error($conexion);
         }
-        
     }else{
-        $_SESSION['entradasErrores'] = $entradasErrores;
-        header("Location: ../html/formEntrada.php");
+        $_SESSION['arrayErrores'] = $arrayErrores;
+        header("Location: ../html/formModificarEntrada.php");
     }

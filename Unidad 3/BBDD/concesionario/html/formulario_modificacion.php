@@ -29,14 +29,16 @@
                 <div class="seccion-principal">
                     
                     <?php 
-                          if(isset($_SESSION['errores'])){
+                    
+                        if(isset($_SESSION['errores'])){
                             foreach ($_SESSION['errores'] as $error){
                                 echo "* ".$error."<br>";
                                 $_SESSION['errores'] = null;
                             }
-                          }
+                        }
                           
-                          if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}
+                        if(isset($_SESSION['usuario'])){echo "Usuario: ".$_SESSION['usuario'];}
+                          
                     ?>
                     
                     <form class="formulario-modificacion" action="modificar.php" method="POST">

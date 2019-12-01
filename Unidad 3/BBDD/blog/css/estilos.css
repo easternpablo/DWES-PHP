@@ -20,8 +20,18 @@ div.formulario-login{margin-right: 60px;}
 div.formulario-registro{margin-right: 60px;}
 div.opciones{margin: 10px 10px 10px 10px;}
 div.opciones button{width: 200px; text-align: center;}
-div.formulario-categoria{margin: 10px 10px 10px 10px;}
+div.formulario{margin: 10px 10px 10px 10px;}
 div.entrada h2{color: #0EAF29; text-shadow: 2px 2px 4px #000000;}
+div.resultado-busqueda h2{color: #0EAF29; text-shadow: 2px 2px 4px #000000;}
+
+.active-cyan-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+}
 
 /**** PIE DE PÁGINA ****/
 footer {
@@ -43,9 +53,24 @@ footer p {
     margin: 5px 2px;
 }
 
-.fa:hover {
+footer .fa:hover {
     text-decoration: none;
     background-color: white;
+}
+
+.fa-gamepad {
+    font: bold;
+    color: white;
+}
+
+.fa-edit {
+    font: bold;
+    color: white;
+}
+
+.fa-trash {
+    font: bold;
+    color: white;
 }
 
 .fa-facebook {

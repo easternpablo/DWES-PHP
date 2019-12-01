@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Actualizar datos - Blog</title>
+        <title>Modificar entrada - Blog</title>
         <link rel="stylesheet" href="../css/estilos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
         <?php require_once '../includes/header.html'; ?>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand" href="#">
-                <i style="text-decoration: none;" class="fa fa-gamepad"></i>
+                <i class="fa fa-gamepad"></i>
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -35,7 +35,6 @@
                         }
                     }                  
                 ?>
-                 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sobre mi</a>
                 </li>
@@ -46,47 +45,64 @@
         </nav>
         <div class="seccion-principal">
             <?php
-                
-                    if(isset($_SESSION['erroresModificacion'])){
-                        foreach ($_SESSION['erroresModificacion'] as $error){
-                            echo "* ".$error."<br>";
-                            $_SESSION['erroresModificacion'] = null;
-                        }
+            
+                if(isset($_SESSION['arrayErrores'])){
+                    foreach ($_SESSION['arrayErrores'] as $error){
+                        echo "* ".$error."<br>";
+                        $_SESSION['arrayErrores'] = null;
                     }
+                }
+            
             ?>
             <div class="row">
                 <div id="primera-columna" class="col-lg-8">
                     <div class="formulario">
+                   <?php
+                   
+                        if(isset($_GET['modificarid'])){
+                            
+                            $id = $_GET['modificarid'];
+                            $sql = " SELECT E.id, "
+                                        . " E.titulo, "
+                                        . " E.descripcion, "
+                                        . " C.nombre, "
+                                        . " E.categoria_id "
+                                  ." FROM entradas E INNER JOIN categorias C ON E.categoria_id = C.id WHERE E.id = $id ";
+                            $resultado = mysqli_query($conexion,$sql);
+                            $fila = mysqli_fetch_assoc($resultado); 
+                   ?>
                         <fieldset>
-                            <legend>Mis Datos</legend>
-                            <?php
-                                $email = $_SESSION['usuario'];
-                                $sql = " SELECT * FROM usuarios WHERE email='$email' ";
-                                $consulta = mysqli_query($conexion,$sql);
-                                $fila = mysqli_fetch_assoc($consulta);
-                            ?>
-                            <form class="form-login" action="../acciones/modificarMisDatos.php" method="post">
+                            <legend>Modificar entrada</legend>
+                            <form class="form-login" action="../acciones/modificarEntrada.php" method="post">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" value="<?=$fila['id']?>" name="id" hidden/>
+                                    <input type="hidden" class="form-control" id="identificador" name="identificador" value=<?=$fila['id']?>>
+                                    <label>Titulo</label><br>
+                                    <input type="text" class="form-control" id="titulo" name="titulo" value=<?=$fila['titulo']?>>
+                                    <label>Descripción</label><br>
+                                    <input type="text" class="form-control" id="descripcion" name="descripcion" value=<?=$fila['descripcion']?>>
+                                    <label>Categoría</label><br>
+                                    <select id="selectCategoria" class="selectCategoria">
+                                        <option value="<?=$fila['id']?>"><?=$fila['nombre']?></option>
+                                            <?php
+                                                $sql = " SELECT * FROM categorias WHERE nombre!='$fila[nombre]' ";
+                                                $consulta = mysqli_query($conexion,$sql);
+                                                while ($valores = mysqli_fetch_array($consulta)){ ?>
+                                                    <option value="<?=$valores['id']?>"><?=$valores['nombre']?></option>
+                                            <?php    
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label>Nombre</label><br>
-                                    <input type="text" class="form-control" value="<?=$fila['nombre']?>" name="nombre"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Apellidos</label><br>
-                                    <input type="text" class="form-control" value="<?=$fila['apellidos']?>" name="apellidos"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label><br>
-                                    <input type="email" class="form-control" value="<?=$email?>" name="email"/>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btnAgregar">Actualizar</button>
-                                </div>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
                             </form>
-                        </fieldset>
+                        </fieldset> 
                     </div>
+                    <?php
+                    
+                        }
+                        
+                    ?>
+                    
                 </div>
                 <div class="col-lg-4">
                     <aside>
