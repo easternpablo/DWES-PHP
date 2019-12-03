@@ -75,13 +75,13 @@
                             <legend>Modificar entrada</legend>
                             <form class="form-login" action="../acciones/modificarEntrada.php" method="post">
                                 <div class="form-group">
-                                    <input type="hidden" class="form-control" id="identificador" name="identificador" value=<?=$fila['id']?>>
+                                    <input type="hidden" class="form-control" name="identificador" value=<?=$fila['id']?>>
                                     <label>Titulo</label><br>
-                                    <input type="text" class="form-control" id="titulo" name="titulo" value=<?=$fila['titulo']?>>
+                                    <input type="text" class="form-control" name="titulo" value=<?=$fila['titulo']?>>
                                     <label>Descripción</label><br>
-                                    <input type="text" class="form-control" id="descripcion" name="descripcion" value=<?=$fila['descripcion']?>>
-                                    <label>Categoría</label><br>
-                                    <select id="selectCategoria" class="selectCategoria">
+                                    <input type="text" class="form-control" name="descripcion" value=<?=$fila['descripcion']?>>
+                                    <!--<label>Categoría</label><br>-->
+                                    <!--<select id="selectCategoria" class="selectCategoria">
                                         <option value="<?=$fila['id']?>"><?=$fila['nombre']?></option>
                                             <?php
                                                 $sql = " SELECT * FROM categorias WHERE nombre!='$fila[nombre]' ";
@@ -91,7 +91,7 @@
                                             <?php    
                                                 }
                                             ?>
-                                    </select>
+                                    </select>-->
                                 </div>
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </form>
@@ -108,8 +108,8 @@
                     <aside>
                         <div class="buscador">
                             <div class="formulario">
-                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="" method="post">
-                                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="formBusqueda.php" method="post">
+                                    <input name="campoBuscar" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
                                     <button type="submit" class="btn btn-success">Buscar</button>
                                 </form>
                             </div>

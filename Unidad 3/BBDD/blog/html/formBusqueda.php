@@ -51,7 +51,7 @@
                         
                         $buscar = isset($_POST['campoBuscar']) ? mysqli_real_escape_string($conexion,trim($_POST['campoBuscar'])):false;
 
-                        $sql = " SELECT titulo FROM entradas WHERE titulo LIKE '%$buscar%' ";
+                        $sql = " SELECT E.titulo,C.nombre,E.fecha,E.descripcion FROM entradas E INNER JOIN categorias C ON E.categoria_id = C.id WHERE titulo LIKE '%$buscar%' ";
                         $consulta = mysqli_query($conexion,$sql);
                         
                         if($consulta){
@@ -59,6 +59,8 @@
                                 while($fila = mysqli_fetch_assoc($consulta)){?>
                                     <div class="resultado-busqueda">
                                         <h2><?=$fila['titulo']?></h2><br>
+                                        <p><?=$fila['nombre']?> | <?=$fila['fecha']?></p>
+                                        <p><?=$fila['descripcion']?></p>
                                     </div>
                     <?php
                                 }
@@ -72,7 +74,7 @@
                     <aside>
                         <div class="buscador">
                             <div class="formulario">
-                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="../acciones/buscar.php" method="post">
+                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="formBusqueda.php" method="post">
                                     <input name="campoBuscar" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
                                     <button type="submit" class="btn btn-success">Buscar</button>
                                 </form>

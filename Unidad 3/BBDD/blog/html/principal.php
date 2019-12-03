@@ -50,7 +50,7 @@
                     <h2>Últimas entradas</h2>
                     <?php 
                         
-                        $sql = " SELECT E.id,E.titulo,C.nombre,E.fecha,E.descripcion FROM entradas E INNER JOIN categorias C ON E.categoria_id = C.id ";
+                        $sql = " SELECT E.id,E.titulo,C.nombre,E.fecha,E.descripcion FROM entradas E INNER JOIN categorias C ON E.categoria_id = C.id ORDER BY E.fecha DESC ";
                         $consulta = mysqli_query($conexion,$sql);
                         
                         if(mysqli_num_rows($consulta)>0){ 

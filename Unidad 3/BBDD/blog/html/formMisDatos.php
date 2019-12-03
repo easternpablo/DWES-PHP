@@ -92,8 +92,8 @@
                     <aside>
                         <div class="buscador">
                             <div class="formulario">
-                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="" method="post">
-                                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                                <form class="form-inline md-form form-sm active-cyan-2 mt-2" action="formBusqueda.php" method="post">
+                                    <input name="campoBuscar" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
                                     <button type="submit" class="btn btn-success">Buscar</button>
                                 </form>
                             </div>
