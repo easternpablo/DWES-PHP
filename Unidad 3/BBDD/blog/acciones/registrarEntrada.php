@@ -13,15 +13,17 @@
        $fila = mysqli_fetch_assoc($consultaUser);
        $usuario_id = $fila['id'];
     }
-    
-    if(isset($_POST['selectCategoria'])){
-        $categoria = $_POST['selectCategoria'];
-    }else if($_POST['selectCategoria']==0){
+    $categoria = $_POST['selectCategoria'];
+    if($categoria == "ninguno"){
         $entradasErrores['selectCategoria'] = "Error no tienes ninguna categoría seleccionada.";
     }
  
     if(empty($titulo)){
         $entradasErrores['titulo'] = "Error en el campo título.";
+    }
+    
+    if(empty($descripcion)){
+        $entradasErrores['descripcion'] = "Error en el campo descripción.";
     }
     
     if(count($entradasErrores)==0){

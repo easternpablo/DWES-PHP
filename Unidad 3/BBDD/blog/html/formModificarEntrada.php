@@ -62,36 +62,25 @@
                         if(isset($_GET['modificarid'])){
                             
                             $id = $_GET['modificarid'];
-                            $sql = " SELECT E.id, "
-                                        . " E.titulo, "
-                                        . " E.descripcion, "
-                                        . " C.nombre, "
-                                        . " E.categoria_id "
-                                  ." FROM entradas E INNER JOIN categorias C ON E.categoria_id = C.id WHERE E.id = $id ";
-                            $resultado = mysqli_query($conexion,$sql);
-                            $fila = mysqli_fetch_assoc($resultado); 
+                            $userEmail = $_SESSION['usuario'];
+                            $sqlUser = " SELECT * FROM usuarios WHERE email='$userEmail' ";
+                            $consultaUser = mysqli_query($conexion,$sqlUser);
+                            $fila = mysqli_fetch_assoc($consultaUser);
+                            $usuario_id = $fila['id'];
+                            
+                            $sql2 = " SELECT id, titulo, descripcion FROM entradas WHERE usuario_id=$usuario_id AND id=$id ";
+                            $resultado = mysqli_query($conexion,$sql2);
+                            $fila2 = mysqli_fetch_assoc($resultado);
                    ?>
                         <fieldset>
                             <legend>Modificar entrada</legend>
                             <form class="form-login" action="../acciones/modificarEntrada.php" method="post">
                                 <div class="form-group">
-                                    <input type="hidden" class="form-control" name="identificador" value=<?=$fila['id']?>>
+                                    <input type="hidden" class="form-control" name="identificador" value="<?=$fila2['id']?>">
                                     <label>Titulo</label><br>
-                                    <input type="text" class="form-control" name="titulo" value=<?=$fila['titulo']?>>
+                                    <input type="text" class="form-control" name="titulo" value="<?=$fila2['titulo']?>">
                                     <label>Descripción</label><br>
-                                    <input type="text" class="form-control" name="descripcion" value=<?=$fila['descripcion']?>>
-                                    <!--<label>Categoría</label><br>-->
-                                    <!--<select id="selectCategoria" class="selectCategoria">
-                                        <option value="<?=$fila['id']?>"><?=$fila['nombre']?></option>
-                                            <?php
-                                                $sql = " SELECT * FROM categorias WHERE nombre!='$fila[nombre]' ";
-                                                $consulta = mysqli_query($conexion,$sql);
-                                                while ($valores = mysqli_fetch_array($consulta)){ ?>
-                                                    <option value="<?=$valores['id']?>"><?=$valores['nombre']?></option>
-                                            <?php    
-                                                }
-                                            ?>
-                                    </select>-->
+                                    <input type="text" class="form-control" name="descripcion" value="<?=$fila2['descripcion']?>">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </form>

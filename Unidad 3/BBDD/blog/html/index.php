@@ -21,19 +21,7 @@
             
                 session_start();
                 
-                if(isset($_SESSION['erroresRegistro'])){
-                    foreach ($_SESSION['erroresRegistro'] as $error){
-                        echo "* ".$error."<br>";
-                        $_SESSION['erroresRegistro'] = null;
-                    }
-                }
                 
-                if(isset($_SESSION['erroresLogin'])){
-                    foreach ($_SESSION['erroresLogin'] as $error){
-                        echo "* ".$error."<br>";
-                        $_SESSION['erroresLogin'] = null;
-                    }
-                }
                 
                 if(isset($_SESSION['usuario'])){session_destroy();}
             ?>
@@ -41,6 +29,21 @@
                 <div id="primera-columna" class="col-lg-8"></div>
                 <div class="col-lg-4">
                     <aside>
+                        <?php
+                            if(isset($_SESSION['erroresRegistro'])){
+                                foreach ($_SESSION['erroresRegistro'] as $error){
+                                    echo "* ".$error."<br>";
+                                    $_SESSION['erroresRegistro'] = null;
+                                }
+                            }
+
+                            if(isset($_SESSION['erroresLogin'])){
+                                foreach ($_SESSION['erroresLogin'] as $error){
+                                    echo "* ".$error."<br>";
+                                    $_SESSION['erroresLogin'] = null;
+                                }
+                            }
+                        ?>
                         <div class="formulario-login">
                             <fieldset>
                                 <legend>Iniciar Sesión</legend>

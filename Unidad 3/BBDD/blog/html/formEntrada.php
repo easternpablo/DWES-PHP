@@ -72,7 +72,7 @@
                                 <div class="form-group">
                                     <label>Categoría</label>
                                     <select id="selectCategoria" name="selectCategoria">
-                                        <option value="">Elige una opción</option>
+                                        <option value="ninguno">Elige una opción</option>
                                         <?php
                                             $sql = " SELECT * FROM categorias ";
                                             $consulta = mysqli_query($conexion,$sql);
