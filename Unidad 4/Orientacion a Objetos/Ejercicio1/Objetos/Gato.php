@@ -8,19 +8,19 @@
         
         public function __construct($sexo, $raza = "Siames") {
             parent::__construct($sexo);
-            $this->$raza = $raza;
+            $this->raza = $raza;
         }
         
         public function setRaza($raza2){
-            $this->$raza = $raza2;
+            $this->raza = $raza2;
         }
         
         public function getRaza(){
-            return $this->$raza;
+            return $this->raza;
         }
         
         public function __toString() {
-            return parent::__toString()."<br>Raza: $this->$raza ";
+            return parent::__toString()."<br>Raza: $this->raza ";
         }
         
         public function comer($comida){

@@ -9,13 +9,13 @@
             
             include_once '../Objetos/Gato.php';
             
-            //$gato1 = new Gato("Hembra");
+            $gato1 = new Gato("Hembra");
             $gato2 = new Gato("Macho", "Egipcio");
-            //$gato3 = new Gato("Hembra");
+            $gato3 = new Gato("Hembra");
             
-            //echo "$gato1<br>";
-            echo "$gato2<br>";
-            //echo "$gato3<br>";
+            echo $gato1->comer('Pescado')."<br>";
+            echo $gato2->getRaza()."<br>";
+            echo $gato3->aseate()."<br>";
         ?>
     </body>
 </html>
