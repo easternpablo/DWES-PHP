@@ -28,6 +28,16 @@ class UsuariosModel extends Database{
         return $resultado;
     }
     
+    public function delete(){
+        $sql = " DELETE FROM Usuarios WHERE id={$this->getId()}";
+        $delete = $this->conn->exec($sql);
+        $resultado = false;
+        if($delete){
+            $resultado = true;
+        }
+        return $resultado;
+    }
+    
     function getId() {
         return $this->id;
     }
