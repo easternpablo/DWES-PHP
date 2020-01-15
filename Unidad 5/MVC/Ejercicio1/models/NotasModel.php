@@ -17,6 +17,11 @@
             return $consulta;
         }
         
+        public function get_all_id(){
+            $consulta = $this->conn->query(" SELECT * FROM Notas WHERE usuario_id={$this->getUsuario_id()} ORDER BY id ASC ");
+            return $consulta;
+        }
+        
         public function save(){
             $sql = " INSERT INTO Notas VALUES(null,'{$this->getUsuario_id()}','{$this->getTitulo()}','{$this->getDescripcion()}',CURDATE());";
             $save = $this->conn->exec($sql);

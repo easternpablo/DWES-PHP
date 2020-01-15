@@ -14,6 +14,18 @@
             require_once('views/nota/TodasNotasView.php');
         }
         
+        public function MostrarNotasId(){
+            if(!isset($_GET['iduser'])){
+                require_once('views/usuario/TodosUsuariosView.php');               
+            }else{
+                $id = $_GET['iduser'];
+                $nota = new NotasModel();
+                $nota->setUsuario_id($id);
+                $notasUser = $nota->get_all_id();
+                require_once('views/nota/MostrarNotasUserView.php');
+            }
+        }
+        
         public function save(){
             if(!isset($_POST['submit'])){
                 require_once('views/nota/CrearNotaView.php');
