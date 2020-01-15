@@ -14,12 +14,10 @@
             require_once('views/usuario/TodosUsuariosView.php');
         }
         
-        public function formRegistro(){
-            require_once('views/usuario/formRegistro.php');
-        }
-        
         public function save(){
-            if(isset($_POST)){
+            if(!isset($_POST['submit'])){
+                require_once('views/usuario/CrearUsuarioView.php');
+            }else{
                 $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
                 $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
                 $email = isset($_POST['email']) ? $_POST['email'] : false;
@@ -29,6 +27,7 @@
                     $save = $usuario->save();
                     if($save){
                         $_SESSION['register'] = "complete";
+                        $this->index();
                     }else{
                         $_SESSION['register'] = "failed";
                     }
@@ -36,10 +35,26 @@
                     $_SESSION['register'] = "failed";
                 }
             }
-            header("Location:index.php?c=Usuarios&a=registro");
         }
         
         public function delete(){
-            
+            if(!isset($_GET['idDelete'])){
+                require_once('views/usuario/TodosUsuariosView.php');               
+            }else{
+                $id = $_GET['idDelete'];
+                if($id){
+                    $usuario = new UsuariosModel();
+                    $usuario->setId($id);
+                    $delete = $usuario->delete();
+                    if($delete){
+                        $_SESSION['remove'] = "complete";
+                        $this->TodosUsuarios();
+                    }else{
+                        $_SESSION['remove'] = "failed";
+                    }
+                }else{
+                    $_SESSION['remove'] = "failed";
+                }
+            }
         }
     }

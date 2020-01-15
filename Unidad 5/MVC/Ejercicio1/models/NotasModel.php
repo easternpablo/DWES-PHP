@@ -13,7 +13,7 @@
         }
         
         public function get_all(){
-            $consulta = $this->conn->query(" SELECT * FROM Notas ORDER BY id DESC ");
+            $consulta = $this->conn->query(" SELECT * FROM Notas ORDER BY id ASC ");
             return $consulta;
         }
         

@@ -12,15 +12,24 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <!-- Brand/logo -->
             <a class="navbar-brand" href="#">
-              <img src="bird.jpg" alt="logo" style="width:40px;">
+                <img src="assets/img/edificio-de-la-escuela-clasica.png" alt="logo" style="width:40px;">
             </a>
             <!-- Links -->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">Listar Usuarios</a>
+                <a class="nav-link" href="index.php?c=Usuarios&&a=TodosUsuarios">Listar Usuarios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Insertar Usuarios</a>
+                <a class="nav-link" href="index.php?c=Usuarios&&a=save">Insertar Usuarios</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#"><span> | </span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?c=Notas&&a=TodasNotas">Listar Notas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?c=Notas&&a=save">Insertar Notas</a>
               </li>
             </ul>
         </nav>
