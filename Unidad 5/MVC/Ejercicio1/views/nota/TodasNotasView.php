@@ -1,5 +1,5 @@
 <?php
 
     while($nota = $todasNotas->fetchObject()){
-        echo $nota->id." ---> ".$nota->usuario_id." *** ".$nota->titulo." - ".$nota->descripcion." - ".$nota->fecha."<br>";
+        echo $nota->nombre." ".$nota->apellidos."---->".$nota->titulo." - ".$nota->descripcion." - ".$nota->fecha."<br>";
     }

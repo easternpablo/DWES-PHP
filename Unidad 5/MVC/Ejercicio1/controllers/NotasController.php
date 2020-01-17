@@ -1,6 +1,7 @@
 <?php
 
     require_once('models/NotasModel.php');
+    require_once('models/UsuariosModel.php');
     
     class NotasController{
         
