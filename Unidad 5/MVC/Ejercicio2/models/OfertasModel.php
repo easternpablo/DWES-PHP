@@ -13,7 +13,37 @@
         }
         
         public function save(){
+            $sql = " INSERT INTO Ofertas VALUES(null,'{$this->getTitulo()}','{$this->getImagen()}','{$this->getDescripcion()}'); ";
+            $guardado = $this->conn->exec($sql);
+            $resultado = false;
+            if($guardado){
+                $resultado = true;
+            }
+            return $resultado;
+        }
+        
+        public function delete(){
+            $sql = " DELETE FROM Ofertas WHERE id={$this->getId()} ";
+            $borrado = $this->conn->exec($sql);
+            $resultado = false;
+            if($borrado){
+                $resultado = true;
+            }
+            return $resultado;
+        }
+        
+        public function edit(){
             
+        }
+        
+        public function get_all_sales(){
+            $consulta = $this->conn->query( " SELECT * FROM Oferta ORDER BY id");
+            return $consulta;
+        }
+        
+        public function get_sale_id(){
+            $consulta = $this->conn->query(" SELECT * FROM Oferta WHERE id={$this->getId()} ");
+            return $consulta;
         }
         
         function getId() {
