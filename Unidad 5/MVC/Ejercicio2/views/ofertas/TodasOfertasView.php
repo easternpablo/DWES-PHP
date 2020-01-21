@@ -8,7 +8,7 @@
         <?php
             
             while($oferta = $todasOfertas->fetchObject()){
-                echo "**".$oferta->id."----->".$oferta->titulo." ".$oferta->descripcion." ".$oferta->imagen." <a href='index.php?c=Ofertas&&a=BorrarOferta&&idoferta=$oferta->id'>Eliminar<a/> | <a href='index.php?c=Ofertas&&a=EditarOferta&&idoferta=$oferta->id'>Editar</a><br>'";
+                echo $oferta->titulo." ".$oferta->descripcion." ".$oferta->imagen." <a href='index.php?c=Ofertas&&a=BorrarOferta&&idoferta=$oferta->id'>Eliminar<a/> | <a href='index.php?c=Ofertas&&a=EditarOferta&&idoferta=$oferta->id'>Editar</a><br>'";
             }
         
         ?>

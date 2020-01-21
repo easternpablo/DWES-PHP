@@ -13,7 +13,7 @@
         }
         
         public function save(){
-            $sql = " INSERT INTO Ofertas VALUES(null,'{$this->getTitulo()}','{$this->getImagen()}','{$this->getDescripcion()}'); ";
+            $sql = " INSERT INTO oferta VALUES(null,'{$this->getTitulo()}','{$this->getImagen()}','{$this->getDescripcion()}'); ";
             $guardado = $this->conn->exec($sql);
             $resultado = false;
             if($guardado){
@@ -23,7 +23,7 @@
         }
         
         public function delete(){
-            $sql = " DELETE FROM Ofertas WHERE id={$this->getId()} ";
+            $sql = " DELETE FROM oferta WHERE id={$this->getId()} ";
             $borrado = $this->conn->exec($sql);
             $resultado = false;
             if($borrado){

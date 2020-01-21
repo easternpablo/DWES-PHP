@@ -19,7 +19,7 @@
                   <a class="nav-link" href="#"><span> | </span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?c=Usuarios&&a=GuardarOferta">Insertar Ofertas</a>
+                <a class="nav-link" href="index.php?c=Ofertas&&a=NuevaOferta">Insertar Ofertas</a>
               </li>
             </ul>
         </nav><br>
@@ -33,12 +33,8 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="container fixed-bottom pie">
-                <div class="row">
-                    <p>&copy;PizzeríaVilches</p>                  
-                </div>
-            </div>
-        </footer>
+        <div class="row fixed-bottom pie">
+            <p class="bg-basic text-white text-center col p-3">&copy;PizzeríaVilches</p>
+        </div>
     </body>
 </html>

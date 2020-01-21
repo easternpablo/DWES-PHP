@@ -26,8 +26,46 @@
             }
         }
         
-        public function GuardarOferta(){
-            
+        public function NuevaOferta(){
+            if(!isset($_GET['idoferta'])){
+                $this->GrabarOferta();
+            }else{
+                require_once 'views/ofertas/CrearOfertaView.php';
+            }
+        }
+        
+        public function GrabarOferta(){
+            if(!isset($_POST['submit'])){
+                require_once 'views/ofertas/CrearOfertaView.php';
+            }else{
+                $titulo = isset($_POST['titulo']) ? $_POST['titulo'] : false;
+                $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
+                if(isset($_FILES['imagen'])){
+                    $file = $_FILES['imagen'];
+                    $filename = $file['name'];
+                    $mimetype = $file['type'];
+                    if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || 
+                        $mimetype == "image/gif"){
+                        if(!is_dir('uploads/img')){
+                            mkdir('uploads/img', 0777, true);
+                        }
+                        move_uploaded_file($file['tmp_name'], "uploads/img/".$filename);
+                        if($titulo && $filename && $descripcion){
+                            $oferta = new OfertasModel($titulo,$filename,$descripcion);
+                            $grabar = $oferta->save();
+                            var_dump($grabar);
+                            if($grabar){
+                                $_SESSION['register'] = "complete";
+                                $this->index();
+                            }else{
+                                $_SESSION['register'] = "failed";
+                            }
+                        }else{
+                            $_SESSION['register'] = "failed";
+                        }
+                    }
+                }
+            }
         }
         
         public function BorrarOferta(){
