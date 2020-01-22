@@ -53,7 +53,6 @@
                         if($titulo && $filename && $descripcion){
                             $oferta = new OfertasModel($titulo,$filename,$descripcion);
                             $grabar = $oferta->save();
-                            var_dump($grabar);
                             if($grabar){
                                 $_SESSION['register'] = "complete";
                                 $this->index();
