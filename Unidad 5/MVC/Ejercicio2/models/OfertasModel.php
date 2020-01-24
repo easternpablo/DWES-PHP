@@ -32,8 +32,18 @@
             return $resultado;
         }
         
-        public function edit(){
-            
+        public function edit($id){
+            $sql = " UPDATE oferta SET titulo='{$this->getTitulo()}',descripcion='{$this->getDescripcion()}'";
+            if($this->getImagen() != null){
+                $sql .= ", imagen='{$this->getImagen()}'";
+            }
+            $sql .= " WHERE id=$id; ";
+            $editado = $this->conn->exec($sql);
+            $resultado = false;
+            if($editado){
+                $resultado = true;
+            }
+            return $resultado;
         }
         
         public function get_all_sales(){
@@ -41,8 +51,8 @@
             return $consulta;
         }
         
-        public function get_sale_id(){
-            $consulta = $this->conn->query(" SELECT * FROM Oferta WHERE id={$this->getId()} ");
+        public function get_sale_id($id){
+            $consulta = $this->conn->query(" SELECT * FROM Oferta WHERE id=$id");
             return $consulta;
         }
         

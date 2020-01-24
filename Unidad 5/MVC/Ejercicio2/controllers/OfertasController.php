@@ -14,21 +14,14 @@
             require_once 'views/ofertas/TodasOfertasView.php';
         }
         
-        public function OfertaId(){
-            if(!isset($_GET['idoferta'])){
-                require_once 'views/ofertas/TodasOfertasView.php';
-            }else{
-                $id = $_GET['idoferta'];
+        public function NuevaOferta(){
+            if(isset($_GET['OfertaId'])){
+                $id = $_GET['OfertaId'];
                 $oferta = new OfertasModel();
                 $oferta->setId($id);
-                $ofertaId = $oferta->get_sale_id();
-                require_once 'views/ofertas/OfertaIdView.php';
-            }
-        }
-        
-        public function NuevaOferta(){
-            if(!isset($_GET['idoferta'])){
-                $this->GrabarOferta();
+                $ofertaId = $oferta->get_sale_id($id);
+                $idEdit = $ofertaId->fetchObject();
+                require_once 'views/ofertas/CrearOfertaView.php';
             }else{
                 require_once 'views/ofertas/CrearOfertaView.php';
             }
@@ -52,15 +45,20 @@
                         move_uploaded_file($file['tmp_name'], "uploads/img/".$filename);
                         if($titulo && $filename && $descripcion){
                             $oferta = new OfertasModel($titulo,$filename,$descripcion);
-                            $grabar = $oferta->save();
-                            if($grabar){
-                                $_SESSION['register'] = "complete";
+                            if(!isset($_GET['OfertaId'])){                              
+                                $grabar = $oferta->save();
                                 $this->index();
                             }else{
-                                $_SESSION['register'] = "failed";
+                                $IdOfertaEdit = $_GET['OfertaId'];
+                                $grabar = $oferta->edit($IdOfertaEdit);
+                                $this->index();
                             }
-                        }else{
-                            $_SESSION['register'] = "failed";
+                                                                          
+                        }else if($titulo && $filename=null && $descripcion){
+                            $oferta = new OfertasModel($titulo,null,$descripcion);
+                            $IdOfertaEdit = $_GET['OfertaId'];
+                            $grabar = $oferta->edit($IdOfertaEdit);
+                            $this->index();
                         }
                     }
                 }

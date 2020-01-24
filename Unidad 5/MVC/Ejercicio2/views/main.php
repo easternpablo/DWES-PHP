@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row fixed-bottom pie">
-            <p class="bg-basic text-white text-center col p-3">&copy;PizzeríaVilches</p>
+            <p class="bg-basic text-white text-center col p-3">&copy;PizzeríaVilches</p><br>
         </div>
     </body>
 </html>
