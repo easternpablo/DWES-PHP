@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Tienda Online - Gameworkshop</title>
         <link rel="icon" href="assets/img/carrito.png"/>
+        <link rel="stylesheet" href="assets/css/estilos.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,9 +18,10 @@
             require_once 'models/database.php';
             require_once 'controllers/ProductosController.php';
             require_once 'controllers/CategoriasController.php';
+            require_once 'controllers/UsuariosController.php';
             
             if(!isset($_GET['c']) || !isset($_GET['a'])){
-                $controlador = new CategoriasController();
+                $controlador = new UsuariosController();
                 $controlador->index();
             }else{
                 $nombre_controlador = $_GET['c'].'Controller';

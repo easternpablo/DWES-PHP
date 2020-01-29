@@ -15,6 +15,20 @@ class UsuariosModel extends Database {
         if(isset($imagen)){$this->imagen=$imagen;}
     }
     
+    public function save(){
+        $guardar = $this->conexion->exec(" INSERT INTO usuarios VALUES(null,'{$this->getNombre()}','{$this->getApellidos()}','{$this->getEmail()}','{$this->getPassword()}','{$this->getRol()}','{$this->getImagen()}'); ");
+        $resultado = false;
+        if($guardar){
+            $resultado = true;
+        }
+        return $resultado;
+    }
+    
+    public function get_user_id($id){
+        $consulta = $this->conexion->query(" SELECT * FROM usuarios WHERE id=$id ");
+        return $consulta;
+    }
+    
     function getId() {
         return $this->id;
     }
