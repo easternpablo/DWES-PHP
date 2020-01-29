@@ -32,12 +32,22 @@
             return $resultado;
         }
         
-        public function edit($id){
+        public function editWithImage($id){
             $sql = " UPDATE oferta SET titulo='{$this->getTitulo()}',descripcion='{$this->getDescripcion()}'";
             if($this->getImagen() != null){
                 $sql .= ", imagen='{$this->getImagen()}'";
             }
             $sql .= " WHERE id=$id; ";
+            $editado = $this->conn->exec($sql);
+            $resultado = false;
+            if($editado){
+                $resultado = true;
+            }
+            return $resultado;
+        }
+        
+        public function editWithoutImage($id){
+            $sql = " UPDATE oferta SET titulo='{$this->getTitulo()}',descripcion='{$this->getDescripcion()}' WHERE id=$id; ";
             $editado = $this->conn->exec($sql);
             $resultado = false;
             if($editado){

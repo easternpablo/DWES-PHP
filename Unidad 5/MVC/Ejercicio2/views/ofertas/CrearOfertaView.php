@@ -5,7 +5,9 @@
         <title>Inserción oferta</title>
     </head>
     <body>
-        <?php 
+        <div class="container-fluid">
+        <?php
+        
             if(!isset($idEdit)){ ?>
                 <h1 class="ml-4">Registro Oferta</h1>
                 <form class="ml-4 mr-4" action="index.php?c=Ofertas&&a=GrabarOferta" method="POST" enctype="multipart/form-data">
@@ -24,7 +26,7 @@
      <?php } else { ?>
 
                 <h1 class="ml-4">Editar Oferta</h1>
-                <form class="ml-4 mr-4" action="index.php?c=Ofertas&&a=GrabarOferta&&OfertaId=<?=$idEdit->id?>" method="POST" enctype="multipart/form-data">
+                <form class="ml-4 mr-4 mb-5" action="index.php?c=Ofertas&&a=GrabarOferta&&OfertaId=<?=$idEdit->id?>" method="POST" enctype="multipart/form-data">
                     <label>Oferta:</label>
                     <input class="form-control" type="text" name="titulo" value="<?=$idEdit->titulo?>" required/>
                     <br>
@@ -39,5 +41,6 @@
                 </form>
 
     <?php   } ?>
+        </div>
     </body>
 </html>

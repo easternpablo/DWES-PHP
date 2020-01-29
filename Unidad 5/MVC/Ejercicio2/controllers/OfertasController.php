@@ -37,30 +37,29 @@
                     $file = $_FILES['imagen'];
                     $filename = $file['name'];
                     $mimetype = $file['type'];
-                    if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || 
-                        $mimetype == "image/gif"){
+                    if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || 
+                            $mimetype == "image/png" || $mimetype == "image/gif"){
                         if(!is_dir('uploads/img')){
                             mkdir('uploads/img', 0777, true);
                         }
-                        move_uploaded_file($file['tmp_name'], "uploads/img/".$filename);
-                        if($titulo && $filename && $descripcion){
-                            $oferta = new OfertasModel($titulo,$filename,$descripcion);
-                            if(!isset($_GET['OfertaId'])){                              
-                                $grabar = $oferta->save();
-                                $this->index();
-                            }else{
-                                $IdOfertaEdit = $_GET['OfertaId'];
-                                $grabar = $oferta->edit($IdOfertaEdit);
-                                $this->index();
-                            }
-                                                                          
-                        }else if($titulo && $filename=null && $descripcion){
-                            $oferta = new OfertasModel($titulo,null,$descripcion);
-                            $IdOfertaEdit = $_GET['OfertaId'];
-                            $grabar = $oferta->edit($IdOfertaEdit);
-                            $this->index();
-                        }
+                        move_uploaded_file($file['tmp_name'], "uploads/img/".$filename);                        
                     }
+                }
+                if($titulo && $filename && $descripcion){
+                    $oferta = new OfertasModel($titulo,$filename,$descripcion);
+                    if(!isset($_GET['OfertaId'])){                              
+                        $grabar = $oferta->save();
+                        $this->index();
+                    }else{
+                        $IdOfertaEdit = $_GET['OfertaId'];
+                        $grabar = $oferta->editWithImage($IdOfertaEdit);
+                        $this->index();
+                    }
+                }else if($titulo && $descripcion){
+                    $oferta = new OfertasModel($titulo,null,$descripcion);
+                    $IdOfertaEdit = $_GET['OfertaId'];
+                    $grabar = $oferta->editWithoutImage($IdOfertaEdit);
+                    $this->index();
                 }
             }
         }
