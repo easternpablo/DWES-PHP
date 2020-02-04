@@ -20,6 +20,9 @@
             require_once 'controllers/CategoriasController.php';
             require_once 'controllers/UsuariosController.php';
             
+            require_once 'views/layout/header.php';
+            require_once 'views/layout/NavBar.php';
+            
             if(!isset($_GET['c']) || !isset($_GET['a'])){
                 $controlador = new UsuariosController();
                 $controlador->index();

@@ -15,6 +15,11 @@ class UsuariosModel extends Database {
         if(isset($imagen)){$this->imagen=$imagen;}
     }
     
+    public function login($email, $pass){
+        $consulta = $this->conexion->exec(" SELECT * FROM usuarios WHERE email=$email AND password=$pass ");
+        return $consulta;
+    }
+
     public function save(){
         $guardar = $this->conexion->exec(" INSERT INTO usuarios VALUES(null,'{$this->getNombre()}','{$this->getApellidos()}','{$this->getEmail()}','{$this->getPassword()}','{$this->getRol()}','{$this->getImagen()}'); ");
         $resultado = false;

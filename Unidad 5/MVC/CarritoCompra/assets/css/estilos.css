@@ -9,10 +9,5 @@
     border-radius: 8px;
 }
 
-.panel {
-    margin-top: 27px !important;
-}
-
-.panel-body {
-    padding-top: 30px !important;
-}
+.panel {margin-top: 27px !important;}
+.panel-body {padding-top: 30px !important;}

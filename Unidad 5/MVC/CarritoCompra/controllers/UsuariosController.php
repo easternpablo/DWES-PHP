@@ -8,6 +8,26 @@ class UsuariosController {
         require_once 'views/main.php';
     }
     
+    function LoginUsuario(){
+        if(!isset($_POST['submit'])){
+            require_once 'views/main.php';
+        }else{
+            $email = isset($_POST['email']) ? $_POST['email'] : false;
+            $password = isset($_POST['pwd']) ? $_POST['pwd'] : false;
+            $usuario = new UsuariosModel();
+            $user = $usuario->login($email, $password);
+            if($user){
+                $rol = $usuario->getRol();
+                $_SESSION['rol'] = $rol;
+                $nombre = $usuario->getNombre();
+                $_SESSION['nombre'] = $nombre;
+                require_once '';
+            }else{
+                $_SESSION['login'] = "failed";
+            }
+        }
+    }
+            
     function RegistrarUsuario(){
         if(!isset($_POST['submit'])){
             require_once 'views/main.php';
