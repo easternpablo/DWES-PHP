@@ -40,7 +40,8 @@
                     echo "La página que buscas no existe";
                 }
             }
-        
+            
+            require_once 'views/layout/piePagina.php';
         ?>
     </body>
 </html>

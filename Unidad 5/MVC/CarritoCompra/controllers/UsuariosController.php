@@ -5,7 +5,7 @@ require_once 'models/UsuariosModel.php';
 class UsuariosController {
     
     function index(){
-        require_once 'views/main.php';
+        require_once 'views/usuario/login.php';
     }
     
     function LoginUsuario(){
@@ -15,17 +15,26 @@ class UsuariosController {
             $email = isset($_POST['email']) ? $_POST['email'] : false;
             $password = isset($_POST['pwd']) ? $_POST['pwd'] : false;
             $usuario = new UsuariosModel();
-            $user = $usuario->login($email, $password);
-            if($user){
-                $rol = $usuario->getRol();
-                $_SESSION['rol'] = $rol;
-                $nombre = $usuario->getNombre();
-                $_SESSION['nombre'] = $nombre;
-                require_once '';
+            $user = $usuario->login($email);
+            $usuarioObtenido = $user->fetchObject();
+            if($usuarioObtenido->email==$email && $usuarioObtenido->password==$password){
+                if($usuarioObtenido->rol == "admin"){
+                    $_SESSION['admin'] = true;
+                }else{
+                    $_SESSION['admin'] = false;
+                }
+                $_SESSION['user'] = $usuarioObtenido;
+                require_once 'views/usuario/login.php';
             }else{
-                $_SESSION['login'] = "failed";
-            }
+                $_SESSION['comprobar'] = "Email o contraseña incorrectos";
+                require_once 'views/usuario/login.php';
+            }         
         }
+    }
+    
+    public function CerrarSession(){
+        $_SESSION['user']=null;
+        header("Location: index.php");
     }
             
     function RegistrarUsuario(){

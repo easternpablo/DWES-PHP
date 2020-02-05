@@ -15,8 +15,8 @@ class UsuariosModel extends Database {
         if(isset($imagen)){$this->imagen=$imagen;}
     }
     
-    public function login($email, $pass){
-        $consulta = $this->conexion->exec(" SELECT * FROM usuarios WHERE email=$email AND password=$pass ");
+    public function login($email){
+        $consulta = $this->conexion->query(" SELECT * FROM usuarios WHERE email='$email' ");
         return $consulta;
     }
 
