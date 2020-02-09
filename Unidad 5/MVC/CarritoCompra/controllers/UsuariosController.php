@@ -5,12 +5,16 @@ require_once 'models/UsuariosModel.php';
 class UsuariosController {
     
     function index(){
-        require_once 'views/usuario/login.php';
+        require_once 'views/layout/aside.php';
+    }
+    
+    function registrar(){
+        require_once 'views/usuario/registroUser.php';
     }
     
     function LoginUsuario(){
         if(!isset($_POST['submit'])){
-            require_once 'views/main.php';
+            require_once 'views/layout/aside.php';
         }else{
             $email = isset($_POST['email']) ? $_POST['email'] : false;
             $password = isset($_POST['pwd']) ? $_POST['pwd'] : false;
@@ -24,22 +28,22 @@ class UsuariosController {
                     $_SESSION['admin'] = false;
                 }
                 $_SESSION['user'] = $usuarioObtenido;
-                require_once 'views/usuario/login.php';
+                header("Location: index.php");
             }else{
                 $_SESSION['comprobar'] = "Email o contraseña incorrectos";
-                require_once 'views/usuario/login.php';
+                require_once 'views/layout/aside.php';
             }         
         }
     }
     
     public function CerrarSession(){
         $_SESSION['user']=null;
-        header("Location: index.php");
+        header("location: index.php");
     }
             
     function RegistrarUsuario(){
         if(!isset($_POST['submit'])){
-            require_once 'views/main.php';
+            require_once 'views/usuario/registroUser.php';
         }else{
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
             $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
@@ -62,7 +66,7 @@ class UsuariosController {
                 $grabar = $usuario->save();
                 if($grabar){
                     $_SESSION['register'] = "complete";
-                    $this->index();
+                    header("Location: index.php");
                 }else{
                     $_SESSION['register'] = "failed";
                 }

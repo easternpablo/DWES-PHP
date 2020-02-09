@@ -16,6 +16,17 @@ class ProductosModel extends Database {
         if(isset($imagen)){$this->imagen=$imagen;}
     }
     
+    public function getRandom($limit){
+        $sql = "SELECT * FROM productos WHERE stock > 0 ORDER BY RAND() LIMIT {$limit}; ";
+        $result = $this->conexion->query($sql);
+        return $result;
+    }
+    
+    function get_all(){
+        $sql = $this->conexion->query(" SELECT * FROM productos ");
+        return $sql;
+    }
+    
     function getId() {
         return $this->id;
     }

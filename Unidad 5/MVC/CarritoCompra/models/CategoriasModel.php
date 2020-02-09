@@ -11,8 +11,17 @@ class CategoriasModel extends Database{
     }
     
     function get_all(){
-        $sql = $this->conexion->query(" SELECT * FROM Categorias ");
+        $sql = $this->conexion->query(" SELECT * FROM categorias ");
         return $sql;
+    }
+    
+    function save(){
+        $sql = $this->conexion->exec(" INSERT INTO categorias VALUES(null,'{$this->getNombre()}'); ");
+        $resultado = false;
+        if($sql){
+            $resultado = true;
+        }
+        return $resultado;
     }
     
     function getId() {

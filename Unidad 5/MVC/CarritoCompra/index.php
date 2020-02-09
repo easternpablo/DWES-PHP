@@ -22,9 +22,10 @@
             
             require_once 'views/layout/header.php';
             require_once 'views/layout/NavBar.php';
+            require_once 'views/layout/aside.php';
             
             if(!isset($_GET['c']) || !isset($_GET['a'])){
-                $controlador = new UsuariosController();
+                $controlador = new ProductosController();
                 $controlador->index();
             }else{
                 $nombre_controlador = $_GET['c'].'Controller';
