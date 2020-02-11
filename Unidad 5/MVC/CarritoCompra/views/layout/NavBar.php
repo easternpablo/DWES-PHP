@@ -11,7 +11,7 @@
         <?php $categoriasMenu = CategoriasController::MostrarTodo(); ?>
         <?php while($category = $categoriasMenu->fetchObject()){ ?>
                 <li class="nav-item">
-                    <a class="nav-link text-info" href="#"><?= $category->nombre ?></a>
+                    <a class="nav-link text-info" href="index.php?c=Categorias&&a=verProductos&&id=<?=$category->id?>"><?= $category->nombre ?></a>
                 </li>
         <?php } ?>
     </ul>

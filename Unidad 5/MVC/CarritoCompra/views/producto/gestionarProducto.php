@@ -1,6 +1,6 @@
 <h1 class="w-100 mb-4">Gestionar productos</h1>
 <div class="w-100">
-    <a href="#" class="btn btn-success w-25">Crear Producto</a>
+    <a href="index.php?c=Productos&&a=agregar" class="btn btn-success w-25">Crear Producto</a>
 </div>
 <div class="w-100 d-flex justify-content-center">
     <table class="table mt-3 w-75 border">
@@ -19,7 +19,7 @@
                     <td><?= $product->precio; ?></td>
                     <td><?= $product->stock; ?></td>
                     <td>
-                        <a href="#" class="btn btn-warning w-100 ">Editar</a>
+                        <a href="#" class="btn btn-info w-100 ">Editar</a>
                         <a href="#" class="btn btn-danger w-100 mt-1">Eliminar</a>
                     </td>
                 </tr>

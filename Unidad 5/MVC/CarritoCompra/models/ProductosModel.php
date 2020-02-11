@@ -22,9 +22,26 @@ class ProductosModel extends Database {
         return $result;
     }
     
+    public function save(){
+        $sql = $this->conexion->exec(" INSERT INTO productos VALUES(null,'{$this->getCategoria_id()}','{$this->getNombre()}','{$this->getDescripcion()}','{$this->getPrecio()}','{$this->getStock()}','{$this->getOferta()}',CURDATE(),'{$this->getImagen()}'); ");
+        $resultado = false;
+        if($sql){
+            $resultado = true;
+        }
+        return $resultado;
+    }
+    
     function get_all(){
         $sql = $this->conexion->query(" SELECT * FROM productos ");
         return $sql;
+    }
+    
+    function get_all_products(){
+        $sql = " SELECT prod.*, cat.nombre FROM productos prod, categorias cat "
+              ." WHERE cat.id=prod.categoria_id "
+              ." AND prod.categoria_id='{$this->getCategoria_id()}' ";
+        $consulta = $this->conexion->query($sql);
+        return $consulta;
     }
     
     function getId() {

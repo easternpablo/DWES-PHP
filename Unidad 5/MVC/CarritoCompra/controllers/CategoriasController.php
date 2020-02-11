@@ -14,6 +14,19 @@ class CategoriasController {
         return $todasCategoria;
     }
     
+    public function verProductos(){
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $categoria = new CategoriasModel();
+            $categoria->setId($id);
+            $selectCategory = $categoria->get_one_category();
+            $productos = new ProductosModel();
+            $productos->setCategoria_id($id);
+            $todosProductos = $productos->get_all_products();
+        }
+        require_once 'views/categoria/visualizarProductosCategoria.php';
+    }
+    
     function crear(){
         require_once 'views/categoria/registroCategoria.php';
     }

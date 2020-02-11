@@ -15,6 +15,11 @@ class CategoriasModel extends Database{
         return $sql;
     }
     
+    function get_one_category(){
+        $sql = $this->conexion->query(" SELECT * FROM categorias WHERE id='{$this->getId()}' ");
+        return $sql->fetchObject();
+    }
+    
     function save(){
         $sql = $this->conexion->exec(" INSERT INTO categorias VALUES(null,'{$this->getNombre()}'); ");
         $resultado = false;
