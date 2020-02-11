@@ -8,7 +8,7 @@
                 <div class="card col-4 p-3 bg-light border-light">
                <?php if ($productos->imagen != null){ ?>
                     <div class="card-body">
-                        <img class="" height="150" width="" src="uploads/img/<?= $productos->imagen ?>" class="card-img-top w-50 p-3 mx-auto" alt="">
+                        <img class="" height="150" src="uploads/img/<?= $productos->imagen ?>" class="card-img-top w-50 p-3 mx-auto" alt="">
                     </div>
                <?php } ?>                   
                 </div>
