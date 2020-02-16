@@ -9,7 +9,9 @@
                <?php if ($productos->imagen != null){ ?>
                     <div class="card-body">
                         <img class="" height="150" src="uploads/img/<?= $productos->imagen ?>" class="card-img-top w-50 p-3 mx-auto" alt="">
+                        <p class="card-text"><?= $productos->precio ?>€</p>
                     </div>
+                    <a href="index.php?c=Carrito&&a=añadirAlCarrito&&id=<?=$productos->id?>" class="btn btn-success">Comprar</a>
                <?php } ?>                   
                 </div>
             </a>

@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\DB;
 
 class frutasSeeder extends Seeder
 {
-
     public function run()
     {
         for($i=0;$i<=50;$i++){

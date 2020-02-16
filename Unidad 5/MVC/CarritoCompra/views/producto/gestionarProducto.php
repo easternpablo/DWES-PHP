@@ -20,7 +20,7 @@
                     <td><?= $product->stock; ?></td>
                     <td>
                         <a href="#" class="btn btn-info w-100 ">Editar</a>
-                        <a href="#" class="btn btn-danger w-100 mt-1">Eliminar</a>
+                        <a href="index.php?c=Productos&&a=borrarProducto&&id=<?=$product->id?>" class="btn btn-danger w-100 mt-1">Eliminar</a>
                     </td>
                 </tr>
                 

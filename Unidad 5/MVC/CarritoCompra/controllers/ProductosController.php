@@ -14,6 +14,27 @@ class ProductosController {
         require_once 'views/producto/gestionarProducto.php';
     }
     
+    function borrarProducto(){
+        if(!isset($_GET['id'])){
+            require_once 'views/producto/gestionarProducto.php';
+        }else{
+            $id = $_GET['id'];
+            if($id){
+                $producto = new ProductosModel();
+                $producto->setId($id);
+                $borrado = $producto->delete();
+                if($borrado){
+                    $_SESSION['remove'] = "complete";
+                    require_once 'views/producto/gestionarProducto.php';
+                }else{
+                    $_SESSION['remove'] = "failed";
+                }
+            }else{
+                $_SESSION['remove'] = "failed";
+            } 
+        }
+    }
+    
     function agregar(){
         require_once 'views/producto/registroProducto.php';
     }

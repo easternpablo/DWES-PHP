@@ -31,6 +31,15 @@ class ProductosModel extends Database {
         return $resultado;
     }
     
+    public function delete(){
+        $sql = $this->conexion->exec(" DELETE FROM productos WHERE id='{$this->getId()}' ");
+        $resultado = false;
+        if($sql){
+            $resultado = true;
+        }
+        return $resultado;
+    }
+    
     function get_all(){
         $sql = $this->conexion->query(" SELECT * FROM productos ");
         return $sql;
