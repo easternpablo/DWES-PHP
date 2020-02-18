@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-        <img src="img/logotipo-select.png" alt="Logotipo Frutería" style="width:100px;"/>
+        <img src="{{ url('img/logotipo-select.png')}}" alt="Logotipo Frutería" style="width:100px;"/>
     </div>
     <div class="col-md-4 mt-1">
         <h1>Frutería DAW</h1>
