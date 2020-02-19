@@ -1,6 +1,13 @@
 <?php
 
+Route::get('/','HomeController@index');
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=>'catalog'], function () {
+
+    Route::get('/','MovieController@index');
+
 });
+
+
+//Route::get('/home', )->name('home');
