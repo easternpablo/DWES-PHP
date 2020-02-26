@@ -1,10 +1,10 @@
 <?php
 
-Route::get('/','HomeController@index');
+Route::get('/','HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::group(['prefix'=>'catalog'], function () {
+Route::group(['prefix'=>'catalog','middleware'=>'auth'], function () {
 
     Route::get('/','MovieController@showMovies');
 
@@ -19,5 +19,9 @@ Route::group(['prefix'=>'catalog'], function () {
     Route::post('/edit/submit/{id}','MovieController@update')->where('id','[0-9]+');
 
     Route::get('/delete/{id}','MovieController@remove')->where('id','[0-9]+');
+
+    Route::get('/change/true/{id}','MovieController@changeRentedTrue')->where('id','[0-9]+');
+
+    Route::get('/change/false/{id}','MovieController@changeRentedFalse')->where('id','[0-9]+');
 
 });

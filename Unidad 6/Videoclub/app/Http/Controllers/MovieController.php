@@ -7,10 +7,6 @@ use App\Movie;
 
 class MovieController extends Controller
 {
-    public function index(){
-        //return view('Movie.main');
-    }
-
     public function showMovies(){
         $movies = Movie::all();
         return view('Movie.catalog',['movies'=>$movies]);
@@ -18,6 +14,20 @@ class MovieController extends Controller
 
     public function showMovieId($id){
         $movie = Movie::findOrFail($id);
+        return view('Movie.show',['movie'=>$movie]);
+    }
+
+    public function changeRentedTrue($id){
+        $movie = Movie::findOrFail($id);
+        $movie->rented = 1;
+        $movie->save();
+        return view('Movie.show',['movie'=>$movie]);
+    }
+
+    public function changeRentedFalse($id){
+        $movie = Movie::findOrFail($id);
+        $movie->rented = 0;
+        $movie->save();
         return view('Movie.show',['movie'=>$movie]);
     }
 
