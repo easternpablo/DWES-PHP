@@ -17,7 +17,7 @@ class ProductosModel extends Database {
     }
     
     public function getRandom($limit){
-        $sql = "SELECT * FROM productos WHERE stock > 0 ORDER BY RAND() LIMIT {$limit}; ";
+        $sql = " SELECT * FROM productos WHERE stock > 0 ORDER BY RAND() LIMIT {$limit}; ";
         $result = $this->conexion->query($sql);
         return $result;
     }
@@ -43,6 +43,11 @@ class ProductosModel extends Database {
     function get_all(){
         $sql = $this->conexion->query(" SELECT * FROM productos ");
         return $sql;
+    }
+    
+    function get_one(){
+        $sql = $this->conexion->query(" SELECT * FROM productos WHERE id='{$this->getId()}' ");
+        return $sql->fetchObject();
     }
     
     function get_all_products(){

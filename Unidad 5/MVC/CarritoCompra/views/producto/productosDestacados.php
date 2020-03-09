@@ -10,7 +10,7 @@
                 <p class="card-text mb-0 text-dark"><?= $prod->precio ?> €</p>
                 <p class="card-text  text-dark font-weight-bold"> <?= $prod->stock ?> Unidades disponibles</p>
             </div>
-            <a href="index.php?c=Carrito&&a=añadirAlCarrito&&id=<?=$prod->id?>" class="btn btn-success">Agregar a carrito</a>
+            <a href="#" class="btn btn-success">Agregar a carrito</a>
         </div>
     </a>
 <?php } ?>
